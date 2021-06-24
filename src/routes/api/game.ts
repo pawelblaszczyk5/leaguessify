@@ -7,7 +7,9 @@ export const get = async (): Promise<EndpointOutput> => {
 	try {
 		const region = randomRegion();
 		const gameId = await randomGame(region);
-		console.log(await gameStats(region, gameId));
+		const game = await gameStats(region, gameId);
+
+		console.log(game);
 		return {
 			status: 200,
 			body: {
