@@ -3,7 +3,7 @@
 
 	export const load = async ({ fetch }: LoadInput): Promise<LoadOutput> => {
 		try {
-			const response = await fetch('api/test');
+			const response = await fetch('api/game');
 			const data: { test: string } = await response.json();
 
 			return {
@@ -25,7 +25,6 @@
 	export let text: string;
 
 	const w = text;
-	console.log(w);
 </script>
 
 <h1>Welcome to SvelteKit {text}</h1>
