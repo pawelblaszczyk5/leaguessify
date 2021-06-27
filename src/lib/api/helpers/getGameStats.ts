@@ -6,7 +6,7 @@ import { GAME_STATS_CACHE_TIME } from '../constants/cacheTime';
 import { riotAPI } from '../constants/riotApiUrl';
 import { mapDataFromApi } from './mapDataFromApi';
 
-export const gameStats = async (region: GameRegion, id: number): Promise<MappedGameData> => {
+export const getGameStats = async (region: GameRegion, id: number): Promise<MappedGameData> => {
 	const gameJoinedId = `${region}_${id}`;
 
 	const gameStatsDataFromRedis = await redis.get(gameJoinedId);

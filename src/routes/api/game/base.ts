@@ -1,16 +1,16 @@
 import type { EndpointOutput } from '@sveltejs/kit';
 import type { JSONValue } from '@sveltejs/kit/types/endpoint';
 
-import { gameStats } from '$lib/api/helpers/gameStats';
-import { randomGame } from '$lib/api/helpers/randomGame';
-import { randomRegion } from '$lib/api/helpers/randomRegion';
+import { getGameStats } from '$lib/api/helpers/getGameStats';
+import { getRandomGameId } from '$lib/api/helpers/getRandomGameId';
+import { getRandomRegion } from '$lib/api/helpers/getRandomRegion';
 import { getBaseGameData } from '$lib/api/helpers/getBaseGameData';
 
 export const get = async (): Promise<EndpointOutput> => {
 	try {
-		const region = randomRegion();
-		const gameId = await randomGame(region);
-		const mappedGameData = await gameStats(region, gameId);
+		const region = getRandomRegion();
+		const gameId = await getRandomGameId(region);
+		const mappedGameData = await getGameStats(region, gameId);
 		const baseGameData = getBaseGameData(mappedGameData);
 
 		return {

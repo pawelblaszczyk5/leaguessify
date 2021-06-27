@@ -3,7 +3,7 @@ import type { GameRegion } from '../model/enums/gameRegion';
 import { redis } from '$lib/api/constants/redis';
 import { GAME_IDS_CACHE_TIME } from '../constants/cacheTime';
 
-export const randomGame = async (region: GameRegion): Promise<number> => {
+export const getRandomGameId = async (region: GameRegion): Promise<number> => {
 	try {
 		const gameId = await redis.srandmember(region);
 
