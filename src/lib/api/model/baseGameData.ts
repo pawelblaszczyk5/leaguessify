@@ -1,7 +1,9 @@
+import type { GameRegion } from './enums/gameRegion';
 import type { Position } from './enums/position';
 
 export interface BaseGameData {
-	gameId: string;
+	gameId: number;
+	gameRegion: GameRegion;
 	gameDuration: number;
 	participants: Array<BaseParticipant>;
 }

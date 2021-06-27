@@ -1,8 +1,14 @@
+import type { GameRegion } from '../model/enums/gameRegion';
 import type { MappedGameData } from '../model/mappedGameData';
 import type { UnmappedGameData } from '../model/unmappedGameData';
 
-export const mapDataFromApi = ({ info }: UnmappedGameData, id: string): MappedGameData => ({
+export const mapDataFromApi = (
+	{ info }: UnmappedGameData,
+	id: number,
+	region: GameRegion
+): MappedGameData => ({
 	gameId: id,
+	gameRegion: region,
 	gameDuration: info.gameDuration,
 	participants: info.participants.map((participant) => ({
 		kills: participant.kills,

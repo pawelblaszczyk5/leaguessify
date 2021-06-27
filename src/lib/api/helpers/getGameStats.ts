@@ -1,5 +1,5 @@
 import type { GameRegion } from '../model/enums/gameRegion';
-import type { MappedGameData } from '../model/mappedGamedata';
+import type { MappedGameData } from '../model/mappedGameData';
 
 import { redis } from '$lib/api/constants/redis';
 import { GAME_STATS_CACHE_TIME } from '../constants/cacheTime';
@@ -23,9 +23,18 @@ export const getGameStats = async (region: GameRegion, id: number): Promise<Mapp
 			}
 		}
 	);
-	const gameStatsData = await gameStatsResponse.json();
-	const mappedGameData = mapDataFromApi(gameStatsData, gameJoinedId);
 
-	redis.set(gameJoinedId, JSON.stringify(mappedGameData), 'EX', GAME_STATS_CACHE_TIME);
-	return mappedGameData;
+	if (gameStatsResponse.status === 200) {
+		const gameStatsData = await gameStatsResponse.json();
+		const mappedGameData = mapDataFromApi(gameStatsData, id, region);
+
+		redis.set(gameJoinedId, JSON.stringify(mappedGameData), 'EX', GAME_STATS_CACHE_TIME);
+		return mappedGameData;
+	} else if (gameStatsResponse.status === 404) {
+		throw { status: 404, message: 'Can not find game with given ID' };
+	} else if (gameStatsResponse.status === 401) {
+		throw { status: 401, message: 'Can not authenticate to Riot API' };
+	} else {
+		throw { status: 500, message: 'Unexpected error occured' };
+	}
 };

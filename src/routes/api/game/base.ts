@@ -5,6 +5,7 @@ import { getGameStats } from '$lib/api/helpers/getGameStats';
 import { getRandomGameId } from '$lib/api/helpers/getRandomGameId';
 import { getRandomRegion } from '$lib/api/helpers/getRandomRegion';
 import { getBaseGameData } from '$lib/api/helpers/getBaseGameData';
+import { handleError } from '$lib/api/helpers/handleError';
 
 export const get = async (): Promise<EndpointOutput> => {
 	try {
@@ -18,11 +19,6 @@ export const get = async (): Promise<EndpointOutput> => {
 			body: baseGameData as unknown as JSONValue
 		};
 	} catch (e) {
-		return {
-			status: 500,
-			body: {
-				error: 'test'
-			}
-		};
+		return handleError(e);
 	}
 };
