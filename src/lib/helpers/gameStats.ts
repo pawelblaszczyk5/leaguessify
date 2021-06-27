@@ -12,12 +12,11 @@ export const gameStats = async (region: GameRegion, id: number): Promise<unknown
 		return JSON.parse(gameStatsDataFromRedis);
 	}
 
-	const apiKey = import.meta.env.VITE_LEAGUE_OF_LEGENDS_API_KEY as string;
 	const gameStatsResponse = await fetch(
 		`https://${riotAPI[region]}.api.riotgames.com/lol/match/v5/matches/${gameJoinedId}`,
 		{
 			headers: {
-				'X-Riot-Token': apiKey
+				'X-Riot-Token': import.meta.env.VITE_LEAGUE_OF_LEGENDS_API_KEY
 			}
 		}
 	);
