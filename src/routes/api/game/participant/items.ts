@@ -13,7 +13,9 @@ export const get = async (request: Request): Promise<EndpointOutput> => {
 
 		return {
 			status: 200,
-			body: participant.items
+			body: {
+				items: participant.items
+			}
 		};
 	} catch (e) {
 		return handleError(e);
