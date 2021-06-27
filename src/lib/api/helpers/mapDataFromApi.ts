@@ -1,8 +1,9 @@
 import type { MappedGameData } from '../model/mappedGamedata';
 import type { UnmappedGameData } from '../model/unmappedGameData';
 
-export const mapDataFromApi = ({ info }: UnmappedGameData): MappedGameData => {
+export const mapDataFromApi = ({ info }: UnmappedGameData, id: string): MappedGameData => {
 	return {
+		gameId: id,
 		gameDuration: info.gameDuration,
 		participants: info.participants.map((participant) => ({
 			kills: participant.kills,

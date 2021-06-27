@@ -1,6 +1,7 @@
 import type { Position } from './enums/position';
 
 export interface MappedGameData {
+	gameId: string;
 	gameDuration: number;
 	participants: Array<MappedParticipant>;
 	teams: Array<MappedTeam>;

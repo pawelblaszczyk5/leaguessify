@@ -24,7 +24,7 @@ export const gameStats = async (region: GameRegion, id: number): Promise<MappedG
 		}
 	);
 	const gameStatsData = await gameStatsResponse.json();
-	const mappedGameData = mapDataFromApi(gameStatsData);
+	const mappedGameData = mapDataFromApi(gameStatsData, gameJoinedId);
 
 	redis.set(gameJoinedId, JSON.stringify(mappedGameData), 'EX', GAME_STATS_CACHE_TIME);
 	return mappedGameData;

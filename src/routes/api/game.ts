@@ -1,4 +1,5 @@
 import type { EndpointOutput } from '@sveltejs/kit';
+import type { JSONValue } from '@sveltejs/kit/types/endpoint';
 
 import { gameStats } from '$lib/api/helpers/gameStats';
 import { randomGame } from '$lib/api/helpers/randomGame';
@@ -12,9 +13,7 @@ export const get = async (): Promise<EndpointOutput> => {
 
 		return {
 			status: 200,
-			body: {
-				game: game
-			}
+			body: game as unknown as JSONValue
 		};
 	} catch (e) {
 		return {
