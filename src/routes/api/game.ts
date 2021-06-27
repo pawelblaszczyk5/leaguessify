@@ -10,11 +10,10 @@ export const get = async (): Promise<EndpointOutput> => {
 		const gameId = await randomGame(region);
 		const game = await gameStats(region, gameId);
 
-		console.log(game);
 		return {
 			status: 200,
 			body: {
-				test: 'test'
+				game: game
 			}
 		};
 	} catch (e) {

@@ -4,7 +4,10 @@ import { redis } from '$lib/api/constants/redis';
 import { GAME_STATS_CACHE_TIME } from '../constants/cacheTime';
 import { riotAPI } from '../constants/riotApiUrl';
 
-export const gameStats = async (region: GameRegion, id: number): Promise<unknown> => {
+export const gameStats = async (
+	region: GameRegion,
+	id: number
+): Promise<Record<string, string>> => {
 	const gameJoinedId = `${region}_${id}`;
 
 	const gameStatsDataFromRedis = await redis.get(gameJoinedId);
