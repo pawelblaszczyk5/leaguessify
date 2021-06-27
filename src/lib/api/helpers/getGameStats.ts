@@ -31,9 +31,9 @@ export const getGameStats = async (region: GameRegion, id: number): Promise<Mapp
 		redis.set(gameJoinedId, JSON.stringify(mappedGameData), 'EX', GAME_STATS_CACHE_TIME);
 		return mappedGameData;
 	} else if (gameStatsResponse.status === 404) {
-		throw { status: 404, message: 'Can not find game with given ID' };
+		throw { status: 404, message: "Couldn't find game with given ID" };
 	} else if (gameStatsResponse.status === 401) {
-		throw { status: 401, message: 'Can not authenticate to Riot API' };
+		throw { status: 401, message: "Couldn't authenticate to Riot API" };
 	} else {
 		throw { status: 500, message: 'Unexpected error occured' };
 	}
