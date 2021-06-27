@@ -23,7 +23,8 @@ export const mapDataFromApi = ({ info }: UnmappedGameData, id: string): MappedGa
 			],
 			keystoneId: participant.perks.styles[0].selections[0].perk,
 			secondaryRunePathId: participant.perks.styles[1].style,
-			position: participant.teamPosition
+			position: participant.teamPosition,
+			gold: participant.goldEarned
 		})),
 		teams: info.teams.map((team) => ({
 			championKills: team.objectives.champion.kills,

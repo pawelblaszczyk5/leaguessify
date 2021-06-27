@@ -25,6 +25,7 @@ interface MappedParticipant {
 	championLevel: number;
 	championId: number;
 	championName: string;
+	gold: number;
 	items: Array<number>;
 	keystoneId: number;
 	secondaryRunePathId: number;
