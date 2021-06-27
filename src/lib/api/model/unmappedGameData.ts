@@ -39,5 +39,7 @@ interface UnmappedParticipant {
 	perks: {
 		styles: Array<{ style: number; selections: Array<{ perk: number }> }>;
 	};
+	summoner1Id: number;
+	summoner2Id: number;
 	teamPosition: Position;
 }

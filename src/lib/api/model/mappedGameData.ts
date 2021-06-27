@@ -29,5 +29,7 @@ interface MappedParticipant {
 	items: Array<number>;
 	keystoneId: number;
 	secondaryRunePathId: number;
+	summoner1Id: number;
+	summoner2Id: number;
 	position: Position;
 }
