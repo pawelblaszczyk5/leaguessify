@@ -1,10 +1,10 @@
 import type { MappedGameData } from '../model/mappedGamedata';
 import type { UnmappedGameData } from '../model/unmappedGameData';
 
-export const mapDataFromApi = (dataFromApi: UnmappedGameData): MappedGameData => {
+export const mapDataFromApi = ({ info }: UnmappedGameData): MappedGameData => {
 	return {
-		gameDuration: dataFromApi.gameDuration,
-		participants: dataFromApi.participants.map((participant) => ({
+		gameDuration: info.gameDuration,
+		participants: info.participants.map((participant) => ({
 			kills: participant.kills,
 			deaths: participant.deaths,
 			assists: participant.assists,
@@ -24,7 +24,7 @@ export const mapDataFromApi = (dataFromApi: UnmappedGameData): MappedGameData =>
 			secondaryRunePathId: participant.perks.styles[1].style,
 			position: participant.teamPosition
 		})),
-		teams: dataFromApi.teams.map((team) => ({
+		teams: info.teams.map((team) => ({
 			kills: team.objectives.champion.kills,
 			towerKills: team.objectives.tower.kills,
 			inhibitorKills: team.objectives.inhibitor.kills,

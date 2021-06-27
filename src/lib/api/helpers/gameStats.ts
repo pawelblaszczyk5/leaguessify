@@ -1,13 +1,12 @@
 import type { GameRegion } from '../model/enums/gameRegion';
+import type { MappedGameData } from '../model/mappedGamedata';
 
 import { redis } from '$lib/api/constants/redis';
 import { GAME_STATS_CACHE_TIME } from '../constants/cacheTime';
 import { riotAPI } from '../constants/riotApiUrl';
+import { mapDataFromApi } from './mapDataFromApi';
 
-export const gameStats = async (
-	region: GameRegion,
-	id: number
-): Promise<Record<string, string>> => {
+export const gameStats = async (region: GameRegion, id: number): Promise<MappedGameData> => {
 	const gameJoinedId = `${region}_${id}`;
 
 	const gameStatsDataFromRedis = await redis.get(gameJoinedId);
@@ -25,7 +24,8 @@ export const gameStats = async (
 		}
 	);
 	const gameStatsData = await gameStatsResponse.json();
+	const mappedGameData = mapDataFromApi(gameStatsData);
 
-	redis.set(gameJoinedId, JSON.stringify(gameStatsData), 'EX', GAME_STATS_CACHE_TIME);
-	return gameStatsData;
+	redis.set(gameJoinedId, JSON.stringify(mappedGameData), 'EX', GAME_STATS_CACHE_TIME);
+	return mappedGameData;
 };

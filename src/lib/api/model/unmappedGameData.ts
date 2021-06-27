@@ -1,9 +1,11 @@
 import type { Position } from './enums/position';
 
 export interface UnmappedGameData {
-	gameDuration: number;
-	teams: Array<UnmappedTeam>;
-	participants: Array<UnmappedParticipant>;
+	info: {
+		gameDuration: number;
+		teams: Array<UnmappedTeam>;
+		participants: Array<UnmappedParticipant>;
+	};
 }
 
 interface UnmappedTeam {
