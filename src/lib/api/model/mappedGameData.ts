@@ -1,23 +1,23 @@
 import type { Position } from './enums/position';
 
-export interface BaseGameStats {
+export interface MappedGameData {
 	gameDuration: number;
-	participants: Array<BaseParticipant>;
-	teams: Array<BaseTeam>;
-	bans: Array<number>;
+	participants: Array<MappedParticipant>;
+	teams: Array<MappedTeam>;
 }
 
-interface BaseTeam {
+interface MappedTeam {
 	kills: number;
 	towerKills: number;
 	inhibitorKills: number;
 	dragonKills: number;
 	baronKills: number;
 	riftHeraldKills: number;
+	bans: Array<number>;
 	win: boolean;
 }
 
-interface BaseParticipant {
+interface MappedParticipant {
 	kills: number;
 	deaths: number;
 	assists: number;

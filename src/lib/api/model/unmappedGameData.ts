@@ -1,12 +1,12 @@
 import type { Position } from './enums/position';
 
-export interface FullGameStats {
+export interface UnmappedGameData {
 	gameDuration: number;
-	teams: Array<FullTeam>;
-	participants: Array<FullParticipant>;
+	teams: Array<UnmappedTeam>;
+	participants: Array<UnmappedParticipant>;
 }
 
-interface FullTeam {
+interface UnmappedTeam {
 	bans: Array<{ championId: number }>;
 	objectives: {
 		baron: { kills: number };
@@ -14,17 +14,18 @@ interface FullTeam {
 		dragon: { kills: number };
 		riftHerald: { kills: number };
 		inhibitor: { kills: number };
+		tower: { kills: number };
 	};
 	win: boolean;
 }
 
-interface FullParticipant {
+interface UnmappedParticipant {
 	kills: number;
 	deaths: number;
 	assists: number;
 	champLevel: number;
 	championId: number;
-	championName: number;
+	championName: string;
 	item0: number;
 	item1: number;
 	item2: number;
