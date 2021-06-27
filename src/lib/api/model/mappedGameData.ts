@@ -20,7 +20,7 @@ interface MappedTeam {
 	win: boolean;
 }
 
-interface MappedParticipant {
+export interface MappedParticipant {
 	kills: number;
 	deaths: number;
 	assists: number;
