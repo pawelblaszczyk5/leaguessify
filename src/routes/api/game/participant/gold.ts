@@ -1,7 +1,8 @@
-import { getParticipant } from '$lib/api/helpers/getParticipant';
-import { handleError } from '$lib/api/helpers/handleError';
 import type { GameRegion } from '$lib/api/model/enums/gameRegion';
 import type { EndpointOutput, Request } from '@sveltejs/kit';
+
+import { getParticipant } from '$lib/api/helpers/getParticipant';
+import { handleError } from '$lib/api/helpers/handleError';
 
 export const get = async (request: Request): Promise<EndpointOutput> => {
 	const gameId = Number(request.query.get('gameId'));
