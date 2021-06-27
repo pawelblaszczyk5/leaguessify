@@ -9,7 +9,7 @@ export interface MappedGameData {
 	teams: Array<MappedTeam>;
 }
 
-interface MappedTeam {
+export interface MappedTeam {
 	championKills: number;
 	towerKills: number;
 	inhibitorKills: number;
