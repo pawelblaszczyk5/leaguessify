@@ -1,6 +1,7 @@
-import { GAME_IDS_CACHE_TIME } from '$lib/constants/cacheTime';
-import { redis } from '$lib/constants/redis';
-import type { GameRegion } from '$lib/model/enums/gameRegion';
+import type { GameRegion } from '../model/enums/gameRegion';
+
+import { redis } from '$lib/api/constants/redis';
+import { GAME_IDS_CACHE_TIME } from '../constants/cacheTime';
 
 export const randomGame = async (region: GameRegion): Promise<number> => {
 	try {

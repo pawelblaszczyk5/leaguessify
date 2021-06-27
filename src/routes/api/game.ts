@@ -1,7 +1,8 @@
-import { gameStats } from '$lib/helpers/gameStats';
-import { randomGame } from '$lib/helpers/randomGame';
-import { randomRegion } from '$lib/helpers/randomRegion';
 import type { EndpointOutput } from '@sveltejs/kit';
+
+import { gameStats } from '$lib/api/helpers/gameStats';
+import { randomGame } from '$lib/api/helpers/randomGame';
+import { randomRegion } from '$lib/api/helpers/randomRegion';
 
 export const get = async (): Promise<EndpointOutput> => {
 	try {

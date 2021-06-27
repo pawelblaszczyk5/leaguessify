@@ -1,7 +1,8 @@
-import { GAME_STATS_CACHE_TIME } from '$lib/constants/cacheTime';
-import { redis } from '$lib/constants/redis';
-import { riotAPI } from '$lib/constants/riotAPI';
-import type { GameRegion } from '$lib/model/enums/gameRegion';
+import type { GameRegion } from '../model/enums/gameRegion';
+
+import { redis } from '$lib/api/constants/redis';
+import { GAME_STATS_CACHE_TIME } from '../constants/cacheTime';
+import { riotAPI } from '../constants/riotApiUrl';
 
 export const gameStats = async (region: GameRegion, id: number): Promise<unknown> => {
 	const gameJoinedId = `${region}_${id}`;
