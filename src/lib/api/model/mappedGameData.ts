@@ -8,7 +8,7 @@ export interface MappedGameData {
 }
 
 interface MappedTeam {
-	kills: number;
+	championKills: number;
 	towerKills: number;
 	inhibitorKills: number;
 	dragonKills: number;

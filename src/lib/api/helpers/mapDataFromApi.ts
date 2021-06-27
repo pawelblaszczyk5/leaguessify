@@ -1,4 +1,4 @@
-import type { MappedGameData } from '../model/mappedGamedata';
+import type { MappedGameData } from '../model/mappedGameData';
 import type { UnmappedGameData } from '../model/unmappedGameData';
 
 export const mapDataFromApi = ({ info }: UnmappedGameData, id: string): MappedGameData => {
@@ -26,7 +26,7 @@ export const mapDataFromApi = ({ info }: UnmappedGameData, id: string): MappedGa
 			position: participant.teamPosition
 		})),
 		teams: info.teams.map((team) => ({
-			kills: team.objectives.champion.kills,
+			championKills: team.objectives.champion.kills,
 			towerKills: team.objectives.tower.kills,
 			inhibitorKills: team.objectives.inhibitor.kills,
 			dragonKills: team.objectives.dragon.kills,
