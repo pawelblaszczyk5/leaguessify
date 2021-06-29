@@ -5,7 +5,7 @@ const config = {
 	purge: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
 		colors: {
-			gray: colors.coolGray
+			gray: colors.trueGray
 		}
 	},
 	darkMode: 'class',
