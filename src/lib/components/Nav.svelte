@@ -32,8 +32,9 @@
 			: ''} sm:static sm:h-auto sm:w-auto sm:bg-transparent sm:shadow-none sm:dark:bg-transparent sm:dark:shadow-none sm:translate-x-0 sm:flex-row"
 	>
 		<button
-			on:click={toggleMenuState}
+			aria-label="Close menu"
 			class="focus:outline-none focus:ring-2 focus:ring-blue-500 absolute top-8 right-4 sm:hidden"
+			on:click={toggleMenuState}
 		>
 			<XIcon size="28" />
 		</button>
@@ -54,14 +55,16 @@
 		>
 	</div>
 	<button
-		on:click={toggleDarkModeStatus}
+		aria-label="Open menu"
 		class="focus:outline-none focus:ring-2 focus:ring-blue-500 mr-4 sm:mr-0"
+		on:click={toggleDarkModeStatus}
 	>
 		<svelte:component this={isDarkMode ? SunIcon : MoonIcon} size="28" />
 	</button>
 	<button
-		on:click={toggleMenuState}
+		aria-label="Toggle theme to {isDarkMode ? 'light' : 'dark'}"
 		class="focus:outline-none focus:ring-2 focus:ring-blue-500 sm:hidden"
+		on:click={toggleMenuState}
 	>
 		<MenuIcon size="28" />
 	</button>
