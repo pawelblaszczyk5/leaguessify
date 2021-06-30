@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import '../app.postcss';
+	import oneLetterLogoSrc from '../assets/oneLetterLogo.webp';
 
 	onMount(() => {
 		if (
@@ -14,4 +15,9 @@
 	});
 </script>
 
-<slot />
+<header class="flex p-4 justify-between">
+	<img class="w-16 h-16" src={oneLetterLogoSrc} alt="" />
+</header>
+<main>
+	<slot />
+</main>
