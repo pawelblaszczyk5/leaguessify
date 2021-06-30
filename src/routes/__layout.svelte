@@ -15,9 +15,7 @@
 		}
 	};
 
-	onMount(() => {
-		checkTheme();
-	});
+	onMount(checkTheme);
 </script>
 
 <header class="flex p-4 justify-between items-center">
