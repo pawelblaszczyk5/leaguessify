@@ -10,12 +10,15 @@
 	};
 
 	const checkDarkModeStatus = () => {
-		isDarkMode = document.documentElement.classList.contains('dark');
+		setTimeout(() => {
+			isDarkMode = document.documentElement.classList.contains('dark');
+		});
 	};
 
 	const toggleDarkModeStatus = () => {
 		isDarkMode = !isDarkMode;
 		localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+		console.log(localStorage.getItem('theme'));
 		document.documentElement.classList.toggle('dark');
 	};
 
