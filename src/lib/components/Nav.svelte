@@ -18,7 +18,7 @@
 	<ul
 		class="transform-gpu fixed nm-flat-gray-200-sm dark:nm-flat-gray-800-sm h-screen w-80 max-w-full top-0 right-0 transition-transform duration-300 flex flex-col p-6 items-center text-xl {isMenuOpen
 			? 'translate-x-full'
-			: ''} sm:static sm:h-auto sm:w-auto sm:bg-transparent sm:shadow-none sm:translate-x-0 sm:flex-row"
+			: ''} sm:static sm:h-auto sm:w-auto sm:bg-transparent sm:shadow-none sm:dark:bg-transparent sm:dark:shadow-none sm:translate-x-0 sm:flex-row"
 	>
 		<button
 			on:click={toggleMenuState}
