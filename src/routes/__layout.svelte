@@ -2,7 +2,8 @@
 	import Nav from '$lib/components/Nav.svelte';
 	import { onMount } from 'svelte';
 	import '../app.postcss';
-	import oneLetterLogoSrc from '../assets/oneLetterLogo.webp';
+	import oneLetterLogoWebpSrc from '../assets/oneLetterLogo.webp';
+	import oneLetterLogoPngSrc from '../assets/oneLetterLogo.png';
 
 	const checkTheme = () => {
 		if (
@@ -20,7 +21,11 @@
 
 <header class="flex p-4 justify-between items-center">
 	<a href="/" title="Home page">
-		<img class="w-16 h-16" src={oneLetterLogoSrc} alt="" />
+		<picture class="w-16 h-16">
+			<source srcset={oneLetterLogoWebpSrc} type="image/webp" />
+			<source srcset={oneLetterLogoPngSrc} type="image/png" />
+			<img src={oneLetterLogoPngSrc} alt="" />
+		</picture>
 	</a>
 	<Nav />
 </header>
