@@ -20,7 +20,7 @@
 
 <div class="flex flex-col items-center">
 	{#if showLogo}
-		<div class="flex flex-col items-center" transition:fly|local={{ y: -300, duration: 500 }}>
+		<div class="flex flex-col items-center" transition:fly|local={{ y: -200, duration: 600 }}>
 			<picture class="w-72">
 				<source srcset={fullLogoWebpSrc} type="image/webp" />
 				<source srcset={fullLogoPngSrc} type="image/png" />
