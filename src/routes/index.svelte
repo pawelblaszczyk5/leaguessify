@@ -23,7 +23,7 @@
 			<picture class="w-72">
 				<source srcset={fullLogoWebpSrc} type="image/webp" />
 				<source srcset={fullLogoPngSrc} type="image/png" />
-				<img src={fullLogoPngSrc} alt="Leaguessify" />
+				<img width="288" height="152" src={fullLogoPngSrc} alt="Leaguessify" />
 			</picture>
 			<p class="max-w-md text-center my-4 text-lg">
 				Leaguessify is a game where your analytics skills are put to the test. How much do you need

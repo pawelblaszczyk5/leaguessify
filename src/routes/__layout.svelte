@@ -40,7 +40,7 @@
 		<picture class="w-16 h-16">
 			<source srcset={oneLetterLogoWebpSrc} type="image/webp" />
 			<source srcset={oneLetterLogoPngSrc} type="image/png" />
-			<img src={oneLetterLogoPngSrc} alt="" />
+			<img height="64" width="64" src={oneLetterLogoPngSrc} alt="" />
 		</picture>
 	</a>
 	<Nav />
