@@ -55,14 +55,14 @@
 		>
 	</div>
 	<button
-		aria-label="Open menu"
+		aria-label="Toggle theme to {isDarkMode ? 'light' : 'dark'}"
 		class="focus:outline-none focus:ring-2 focus:ring-blue-500 mr-4 sm:mr-0"
 		on:click={toggleDarkModeStatus}
 	>
 		<svelte:component this={isDarkMode ? SunIcon : MoonIcon} size="28" />
 	</button>
 	<button
-		aria-label="Toggle theme to {isDarkMode ? 'light' : 'dark'}"
+		aria-label="Open menu"
 		class="focus:outline-none focus:ring-2 focus:ring-blue-500 sm:hidden"
 		on:click={toggleMenuState}
 	>
