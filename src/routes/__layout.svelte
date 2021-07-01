@@ -5,6 +5,8 @@
 	import oneLetterLogoWebpSrc from '../assets/oneLetterLogo.webp';
 	import oneLetterLogoPngSrc from '../assets/oneLetterLogo.png';
 
+	let floatingHeader = false;
+
 	const checkTheme = () => {
 		if (
 			localStorage.getItem('theme') === 'dark' ||
@@ -16,10 +18,24 @@
 		}
 	};
 
+	const handleScroll = (
+		e: UIEvent & {
+			currentTarget: EventTarget & Window;
+		}
+	) => {
+		floatingHeader = e.currentTarget.scrollY > 5;
+	};
+
 	onMount(checkTheme);
 </script>
 
-<header class="flex p-4 justify-between items-center">
+<svelte:window on:scroll={handleScroll} />
+
+<header
+	class:nm-flat-gray-200={floatingHeader}
+	class:dark:nm-flat-gray-800={floatingHeader}
+	class="flex px-4 py-2 justify-between items-center sticky top-0"
+>
 	<a href="/" title="Home page">
 		<picture class="w-16 h-16">
 			<source srcset={oneLetterLogoWebpSrc} type="image/webp" />
@@ -29,6 +45,6 @@
 	</a>
 	<Nav />
 </header>
-<main class="p-4">
+<main class="py-4 px-6">
 	<slot />
 </main>
