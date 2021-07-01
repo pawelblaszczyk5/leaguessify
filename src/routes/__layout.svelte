@@ -36,7 +36,7 @@
 	class:dark:nm-flat-gray-800={floatingHeader}
 	class="flex px-4 py-2 justify-between items-center sticky top-0"
 >
-	<a href="/" title="Home page">
+	<a sveltekit:prefetch href="/" title="Home page">
 		<picture class="w-16 h-16">
 			<source srcset={oneLetterLogoWebpSrc} type="image/webp" />
 			<source srcset={oneLetterLogoPngSrc} type="image/png" />
