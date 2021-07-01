@@ -9,6 +9,7 @@
 	import { onMount } from 'svelte';
 	import Button from '$lib/components/Button.svelte';
 	import Spacer from '$lib/components/Spacer.svelte';
+	import NmAnchor from '$lib/components/NmAnchor.svelte';
 
 	let showLogo = false;
 
@@ -19,7 +20,7 @@
 
 <div class="flex flex-col items-center">
 	{#if showLogo}
-		<div class="flex flex-col items-center" transition:fly={{ y: -300, duration: 500 }}>
+		<div class="flex flex-col items-center" transition:fly|local={{ y: -300, duration: 500 }}>
 			<picture class="w-72">
 				<source srcset={fullLogoWebpSrc} type="image/webp" />
 				<source srcset={fullLogoPngSrc} type="image/png" />
@@ -32,7 +33,7 @@
 				single inch - good luck & have fun!
 			</p>
 		</div>
-		<div transition:fade={{ duration: 500, delay: 600 }} class="my-4 flex">
+		<div transition:fade|local={{ duration: 500, delay: 600 }} class="my-4 flex">
 			<Spacer x={4}>
 				<Button>Play</Button>
 			</Spacer>
