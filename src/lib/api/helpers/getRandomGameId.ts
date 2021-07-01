@@ -21,6 +21,6 @@ export const getRandomGameId = async (region: GameRegion): Promise<number> => {
 
 		return gameIds[Math.floor(Math.random() * gameIds.length)];
 	} catch (e) {
-		console.log(e);
+		throw { status: 500, message: "Couldn't fetch game data" };
 	}
 };
