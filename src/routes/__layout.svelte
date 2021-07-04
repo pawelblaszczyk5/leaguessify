@@ -34,7 +34,7 @@
 <header
 	class:nm-flat-gray-200={floatingHeader}
 	class:dark:nm-flat-gray-800={floatingHeader}
-	class="flex px-4 py-2 justify-between items-center sticky top-0"
+	class="flex px-4 py-2 justify-between items-center sticky top-0 z-10"
 >
 	<a sveltekit:prefetch href="/" title="Home page">
 		<picture class="w-16 h-16">
