@@ -10,7 +10,7 @@ import SummonerPoroRecall from './summoner/SummonerPoroRecall.png';
 import SummonerPoroThrow from './summoner/SummonerPoroThrow.png';
 import SummonerSmite from './summoner/SummonerSmite.png';
 import SummonerSnowball from './summoner/SummonerSnowball.png';
-import SummonerSnowURFSnowball_mark from './summoner/SummonerSnowURFSnowball_mark.png';
+import SummonerSnowURFSnowball_Mark from './summoner/SummonerSnowURFSnowball_Mark.png';
 import SummonerTeleport from './summoner/SummonerTeleport.png';
 
 export const summonerIcon = {
@@ -26,6 +26,6 @@ export const summonerIcon = {
 	SummonerPoroThrow,
 	SummonerSmite,
 	SummonerSnowball,
-	SummonerSnowURFSnowball_mark,
+	SummonerSnowURFSnowball_Mark,
 	SummonerTeleport
 };
