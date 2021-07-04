@@ -30,6 +30,17 @@
 </script>
 
 <div class="flex flex-col justify-between h-full relative">
+	{#each summoners as summoner}
+		<div
+			class="first:mb-2 nm-flat-gray-200 dark:nm-flat-gray-800 w-8 h-8 rounded-md overflow-hidden flex items-center justify-center"
+		>
+			{#if summoner}
+				<img src={summonerIcon[summonersData[summoner].id]} alt="" />
+			{:else}
+				<p>?</p>
+			{/if}
+		</div>
+	{/each}
 	{#if !summoners[0]}
 		<button
 			on:click={revealSummoners}
@@ -40,15 +51,4 @@
 			</Icon>
 		</button>
 	{/if}
-	{#each summoners as summoner}
-		<div
-			class="nm-flat-gray-200 dark:nm-flat-gray-800 w-7 h-7 rounded-md overflow-hidden flex items-center justify-center"
-		>
-			{#if summoner}
-				<img src={summonerIcon[summonersData[summoner].id]} alt="" />
-			{:else}
-				<p>?</p>
-			{/if}
-		</div>
-	{/each}
 </div>

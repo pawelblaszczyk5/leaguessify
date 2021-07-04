@@ -47,7 +47,7 @@
 	};
 </script>
 
-<div class="mx-2 text-sm">
+<div class="m-2 text-sm">
 	<div class="flex items-center">
 		<div class="flex items-center relative">
 			{#if isNaN(kda[0])}

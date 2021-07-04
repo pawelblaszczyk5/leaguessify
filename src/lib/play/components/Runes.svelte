@@ -46,7 +46,25 @@
 	};
 </script>
 
-<div class="flex flex-col justify-between h-full relative">
+<div class="flex flex-col justify-between relative">
+	<div
+		class="first:mb-2 nm-flat-gray-200 dark:nm-flat-gray-800 w-8 h-8 rounded-md overflow-hidden flex items-center justify-center"
+	>
+		{#if runes[0]}
+			<img class="h-6 w-6" src={resolveKeystoneImageSrc()} alt="" />
+		{:else}
+			<p>?</p>
+		{/if}
+	</div>
+	<div
+		class="nm-flat-gray-200 dark:nm-flat-gray-800 w-8 h-8 rounded-md overflow-hidden flex items-center justify-center"
+	>
+		{#if runes[1]}
+			<img class="h-4 w-4" src={resolveSecondaryRunePathImageSrc()} alt="" />
+		{:else}
+			<p>?</p>
+		{/if}
+	</div>
 	{#if !runes[0]}
 		<button
 			on:click={revealRunes}
@@ -57,22 +75,4 @@
 			</Icon>
 		</button>
 	{/if}
-	<div
-		class="nm-flat-gray-200 dark:nm-flat-gray-800 w-7 h-7 rounded-md overflow-hidden flex items-center justify-center"
-	>
-		{#if runes[0]}
-			<img class="h-6 w-6" src={resolveKeystoneImageSrc()} alt="" />
-		{:else}
-			<p>?</p>
-		{/if}
-	</div>
-	<div
-		class="nm-flat-gray-200 dark:nm-flat-gray-800 w-7 h-7 rounded-md overflow-hidden flex items-center justify-center"
-	>
-		{#if runes[1]}
-			<img class="h-4 w-4" src={resolveSecondaryRunePathImageSrc()} alt="" />
-		{:else}
-			<p>?</p>
-		{/if}
-	</div>
 </div>

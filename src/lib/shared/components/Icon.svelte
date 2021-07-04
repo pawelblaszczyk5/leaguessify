@@ -1,3 +1,3 @@
-<div style="width: var(--size); height: var(--size);">
+<div style="width: var(--size);">
 	<slot />
 </div>
