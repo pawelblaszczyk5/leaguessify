@@ -26,7 +26,7 @@ import Ekko from './champion/Ekko.png';
 import Elise from './champion/Elise.png';
 import Evelynn from './champion/Evelynn.png';
 import Ezreal from './champion/Ezreal.png';
-import Fiddlesticks from './champion/Fiddlesticks.png';
+import FiddleSticks from './champion/Fiddlesticks.png';
 import Fiora from './champion/Fiora.png';
 import Fizz from './champion/Fizz.png';
 import Galio from './champion/Galio.png';
@@ -183,7 +183,7 @@ export const championIcon = {
 	Elise,
 	Evelynn,
 	Ezreal,
-	Fiddlesticks,
+	FiddleSticks,
 	Fiora,
 	Fizz,
 	Galio,

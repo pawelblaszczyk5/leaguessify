@@ -1,14 +1,18 @@
-import { writable } from 'svelte/store';
-import type { Game } from '../model/game';
+import type { GameRegion } from '$lib/shared/model/enums/gameRegion';
 
-const createGameStore = () => {
-	const { subscribe, update, set } = writable<Game>();
+import { writable } from 'svelte/store';
+
+type GameBaseData = { id: number; region: GameRegion };
+
+const createStoreGame = () => {
+	const { subscribe, set } = writable<GameBaseData>();
 
 	return {
 		subscribe,
-		update,
-		set
+		setGameData: (data: GameBaseData) => {
+			set(data);
+		}
 	};
 };
 
-export const game = createGameStore();
+export const game = createStoreGame();

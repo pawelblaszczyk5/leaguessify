@@ -8,7 +8,7 @@
 
 			return {
 				props: {
-					initialGame: baseGameData
+					gameStats: baseGameData
 				}
 			};
 		} catch (e) {
@@ -20,11 +20,17 @@
 <script lang="ts">
 	import type { Game } from '$lib/play/model/game';
 
-	import { onMount } from 'svelte';
+	import Team from '$lib/play/components/Team.svelte';
+	import { game } from '$lib/play/stores/game';
 
-	export let initialGame: Game;
+	export let gameStats: Game;
 
-	onMount(() => {
-		console.log(initialGame.participants);
-	});
+	game.setGameData({ id: gameStats.gameId, region: gameStats.gameRegion });
 </script>
+
+<div class="flex items-center justify-center flex-col sm:flex-row">
+	{#if gameStats}
+		<Team participants={gameStats.participants.slice(0, 5)} teamIndex={0} />
+		<Team participants={gameStats.participants.slice(5, 10)} teamIndex={1} />
+	{/if}
+</div>
