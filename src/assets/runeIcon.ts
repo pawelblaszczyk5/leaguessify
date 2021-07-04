@@ -19,7 +19,7 @@ import Resolve from './rune/Resolve.png';
 import Sorcery from './rune/Sorcery.png';
 import SummonAery from './rune/SummonAery.png';
 import UnsealedSpellbook from './rune/UnsealedSpellbook.png';
-import AfterShock from './rune/VeteranAftershock.png';
+import Aftershock from './rune/VeteranAftershock.png';
 
 export const runeIcon = {
 	ArcaneComet,
@@ -43,5 +43,5 @@ export const runeIcon = {
 	Sorcery,
 	SummonAery,
 	UnsealedSpellbook,
-	AfterShock
+	Aftershock
 };

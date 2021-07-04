@@ -5,12 +5,19 @@
 	import Items from './Items.svelte';
 	import Summoners from './Summoners.svelte';
 	import Spacer from '$lib/shared/components/Spacer.svelte';
+	import Runes from './Runes.svelte';
 
 	export let participant: Participant;
 	export let reversed = false;
 </script>
 
 <div class="flex m-3" class:flex-row-reverse={reversed}>
+	<Spacer>
+		<Runes
+			runes={[participant.keystoneId, participant.secondaryRunePathId]}
+			participantId={participant.championId}
+		/>
+	</Spacer>
 	<Spacer x={3}>
 		<Summoners
 			participantId={participant.championId}

@@ -6,13 +6,13 @@ const mappedRunesData = Object.fromEntries(
 		return [
 			pathObject.id,
 			{
-				name: pathObject.name,
+				name: pathObject.key,
 				keystones: Object.fromEntries(
 					pathObject.slots[0].runes.map((slotsObject) => {
 						return [
 							slotsObject.id,
 							{
-								name: slotsObject.name
+								name: slotsObject.key
 							}
 						];
 					})
