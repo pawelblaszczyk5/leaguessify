@@ -3,6 +3,8 @@
 	import { runeIcon } from '../../../assets/runeIcon';
 	import runesData from '../../shared/data/rune.json';
 	import { game } from '../stores/game';
+	import FaEye from 'svelte-icons/fa/FaEye.svelte';
+	import Icon from '$lib/shared/components/Icon.svelte';
 
 	export let runes: [number, number];
 	export let participantId: number;
@@ -50,7 +52,9 @@
 			on:click={revealRunes}
 			class="w-full h-full absolute flex items-center justify-center bg-gray-200 bg-opacity-80 dark:bg-gray-800 dark:bg-opacity-80"
 		>
-			Reveal
+			<Icon --size="16px">
+				<FaEye />
+			</Icon>
 		</button>
 	{/if}
 	<div

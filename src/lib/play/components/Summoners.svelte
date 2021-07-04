@@ -3,6 +3,8 @@
 	import { summonerIcon } from '../../../assets/summonerIcon';
 	import summonersData from '../../shared/data/summoner.json';
 	import { game } from '../stores/game';
+	import FaEye from 'svelte-icons/fa/FaEye.svelte';
+	import Icon from '$lib/shared/components/Icon.svelte';
 
 	export let participantId: number;
 	export let summoners: [number, number];
@@ -33,7 +35,9 @@
 			on:click={revealSummoners}
 			class="w-full h-full absolute flex items-center justify-center bg-gray-200 bg-opacity-80 dark:bg-gray-800 dark:bg-opacity-80"
 		>
-			Reveal
+			<Icon --size="16px">
+				<FaEye />
+			</Icon>
 		</button>
 	{/if}
 	{#each summoners as summoner}

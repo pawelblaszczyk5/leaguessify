@@ -4,6 +4,7 @@
 	import FaCoins from 'svelte-icons/fa/FaCoins.svelte';
 	import { get } from 'svelte/store';
 	import { game } from '../stores/game';
+	import FaEye from 'svelte-icons/fa/FaEye.svelte';
 
 	export let kda: [number, number, number];
 	export let gold: number;
@@ -54,7 +55,9 @@
 					on:click={revealKDA}
 					class="w-full h-full absolute flex items-center justify-center bg-gray-200 bg-opacity-80 dark:bg-gray-800 dark:bg-opacity-80"
 				>
-					Reveal
+					<Icon --size="16px">
+						<FaEye />
+					</Icon>
 				</button>
 			{/if}
 			<Icon --size="14px">
@@ -68,7 +71,9 @@
 					on:click={revealGold}
 					class="w-full h-full absolute flex items-center justify-center bg-gray-200 bg-opacity-80 dark:bg-gray-800 dark:bg-opacity-80"
 				>
-					Reveal
+					<Icon --size="16px">
+						<FaEye />
+					</Icon>
 				</button>
 			{/if}
 			<Icon --size="14px">

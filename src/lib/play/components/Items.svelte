@@ -1,9 +1,10 @@
 <script lang="ts">
 	import Spacer from '$lib/shared/components/Spacer.svelte';
 	import { get } from 'svelte/store';
-
 	import { itemIcon } from '../../../assets/itemIcon';
 	import { game } from '../stores/game';
+	import FaEye from 'svelte-icons/fa/FaEye.svelte';
+	import Icon from '$lib/shared/components/Icon.svelte';
 
 	export let items: Array<number>;
 	export let participantId: number;
@@ -35,7 +36,9 @@
 				on:click={revealItems}
 				class="w-full h-full absolute flex items-center justify-center bg-gray-200 bg-opacity-80 dark:bg-gray-800 dark:bg-opacity-80"
 			>
-				Reveal
+				<Icon --size="16px">
+					<FaEye />
+				</Icon>
 			</button>
 		{/if}
 		{#each Array(7) as _, index}
