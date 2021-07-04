@@ -3,7 +3,8 @@
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "svelte-kit dev",
-		"build": "svelte-kit build",
+		"mapData": "node ./scripts/championMap.cjs && node ./scripts/itemMap.cjs && node ./scripts/runesReforgedMap.cjs && node ./scripts/summonerMap.cjs",
+		"build": "npm run mapData && svelte-kit build",
 		"preview": "svelte-kit preview",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",

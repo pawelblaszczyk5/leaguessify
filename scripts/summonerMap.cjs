@@ -12,4 +12,4 @@ const mappedSummonersData = Object.fromEntries(
 	})
 );
 
-fs.writeFileSync('../src/lib/shared/data/summoner.json', JSON.stringify(mappedSummonersData));
+fs.writeFileSync('src/lib/shared/data/summoner.json', JSON.stringify(mappedSummonersData));

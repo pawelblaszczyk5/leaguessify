@@ -13,4 +13,4 @@ const mappedChampionData = Object.fromEntries(
 	})
 );
 
-fs.writeFileSync('../src/lib/shared/data/champion.json', JSON.stringify(mappedChampionData));
+fs.writeFileSync('src/lib/shared/data/champion.json', JSON.stringify(mappedChampionData));

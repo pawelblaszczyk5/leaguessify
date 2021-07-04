@@ -12,4 +12,4 @@ const mappedItemData = Object.fromEntries(
 	})
 );
 
-fs.writeFileSync('../src/lib/shared/data/item.json', JSON.stringify(mappedItemData));
+fs.writeFileSync('src/lib/shared/data/item.json', JSON.stringify(mappedItemData));

@@ -22,4 +22,4 @@ const mappedRunesData = Object.fromEntries(
 	})
 );
 
-fs.writeFileSync('../src/lib/shared/data/rune.json', JSON.stringify(mappedRunesData));
+fs.writeFileSync('src/lib/shared/data/rune.json', JSON.stringify(mappedRunesData));
