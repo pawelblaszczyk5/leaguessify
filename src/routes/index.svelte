@@ -9,7 +9,6 @@
 	import { onMount } from 'svelte';
 	import Button from '$lib/components/Button.svelte';
 	import Spacer from '$lib/components/Spacer.svelte';
-	import NmAnchor from '$lib/components/NmAnchor.svelte';
 
 	let showLogo = false;
 
