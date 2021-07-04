@@ -13,7 +13,7 @@ import SummonerSnowball from './summoner/SummonerSnowball.png';
 import SummonerSnowURFSnowball_mark from './summoner/SummonerSnowURFSnowball_mark.png';
 import SummonerTeleport from './summoner/SummonerTeleport.png';
 
-export const summoner = {
+export const summonerIcon = {
 	SummonerBarrier,
 	SummonerBoost,
 	SummonerDot,

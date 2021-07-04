@@ -21,7 +21,7 @@ import SummonAery from './rune/SummonAery.png';
 import UnsealedSpellbook from './rune/UnsealedSpellbook.png';
 import AfterShock from './rune/VeteranAftershock.png';
 
-export const rune = {
+export const runeIcon = {
 	ArcaneComet,
 	Conqueror,
 	DarkHarvest,
