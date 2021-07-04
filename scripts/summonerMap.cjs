@@ -2,9 +2,9 @@ let summoners = require('./data/summoner.json');
 let fs = require('fs');
 
 const mappedSummonersData = Object.fromEntries(
-	Object.entries(summoners.data).map(([summonerId, summonerObject]) => {
+	Object.entries(summoners.data).map(([, summonerObject]) => {
 		return [
-			summonerId,
+			summonerObject.key,
 			{
 				name: summonerObject.name
 			}
