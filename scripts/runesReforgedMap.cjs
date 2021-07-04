@@ -1,4 +1,4 @@
-let runes = require('./runesReforged.json');
+let runes = require('./data/runesReforged.json');
 let fs = require('fs');
 
 const mappedRunesData = Object.fromEntries(

@@ -1,4 +1,4 @@
-let summoners = require('./summoner.json');
+let summoners = require('./data/summoner.json');
 let fs = require('fs');
 
 const mappedSummonersData = Object.fromEntries(

@@ -1,4 +1,4 @@
-let champions = require('./champion.json');
+let champions = require('./data/champion.json');
 let fs = require('fs');
 
 const mappedChampionData = Object.fromEntries(

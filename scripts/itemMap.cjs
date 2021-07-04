@@ -1,4 +1,4 @@
-let items = require('./item.json');
+let items = require('./data/item.json');
 let fs = require('fs');
 
 const mappedItemData = Object.fromEntries(
