@@ -36,8 +36,6 @@
 				return keystoneId === runes[0].toString();
 			})[1].name;
 
-		console.log(keystoneName);
-
 		return runeIcon[keystoneName];
 	};
 
