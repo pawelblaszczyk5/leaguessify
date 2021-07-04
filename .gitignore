@@ -5,3 +5,4 @@ node_modules
 .env
 /functions
 /psd
+/src/lib/shared/data/*.json
