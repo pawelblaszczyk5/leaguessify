@@ -1,7 +1,3 @@
-<script context="module">
-	export const ssr = false;
-</script>
-
 <script lang="ts">
 	import fullLogoWebpSrc from '../assets/fullLogo.webp';
 	import fullLogoPngSrc from '../assets/fullLogo.png';
