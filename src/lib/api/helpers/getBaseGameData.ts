@@ -1,4 +1,4 @@
-import type { BaseGameData } from '../model/baseGameData';
+import type { BaseGameData } from '../../shared/model/baseGameData';
 import type { MappedGameData } from '../model/mappedGameData';
 
 export const getBaseGameData = (fullGameData: MappedGameData): BaseGameData => ({

@@ -3,8 +3,8 @@
 	import fullLogoPngSrc from '../assets/fullLogo.png';
 	import { fly, fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
-	import Button from '$lib/components/Button.svelte';
-	import Spacer from '$lib/components/Spacer.svelte';
+	import Button from '$lib/shared/components/Button.svelte';
+	import Spacer from '$lib/shared/components/Spacer.svelte';
 
 	let showLogo = false;
 

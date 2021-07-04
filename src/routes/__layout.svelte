@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Nav from '$lib/components/Nav.svelte';
+	import Nav from '$lib/main/components/Nav.svelte';
 	import { onMount } from 'svelte';
 	import '../app.postcss';
 	import oneLetterLogoWebpSrc from '../assets/oneLetterLogo.webp';

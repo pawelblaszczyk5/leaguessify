@@ -1,5 +1,5 @@
-import type { GameRegion } from './enums/gameRegion';
-import type { Position } from './enums/position';
+import type { GameRegion } from '../../api/model/enums/gameRegion';
+import type { Position } from '../../api/model/enums/position';
 
 export interface BaseGameData {
 	gameId: number;
