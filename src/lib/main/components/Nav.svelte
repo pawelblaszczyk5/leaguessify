@@ -1,6 +1,10 @@
 <script lang="ts">
+	import Icon from '$lib/shared/components/Icon.svelte';
 	import { onMount } from 'svelte';
-	import { MenuIcon, XIcon, SunIcon, MoonIcon } from 'svelte-feather-icons';
+	import FaBars from 'svelte-icons/fa/FaBars.svelte';
+	import FaTimes from 'svelte-icons/fa/FaTimes.svelte';
+	import FaRegSun from 'svelte-icons/fa/FaRegSun.svelte';
+	import FaRegMoon from 'svelte-icons/fa/FaRegMoon.svelte';
 
 	let isMenuOpen = true;
 	let isDarkMode = false;
@@ -18,7 +22,6 @@
 	const toggleDarkModeStatus = () => {
 		isDarkMode = !isDarkMode;
 		localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-		console.log(localStorage.getItem('theme'));
 		document.documentElement.classList.toggle('dark');
 	};
 
@@ -36,7 +39,9 @@
 			class="focus:outline-none focus:ring-2 focus:ring-blue-500 absolute top-8 right-4 sm:hidden"
 			on:click={toggleMenuState}
 		>
-			<XIcon size="28" />
+			<Icon --size="28px">
+				<FaTimes />
+			</Icon>
 		</button>
 		<a
 			class="inline-block focus:outline-none focus:ring-2 focus:ring-blue-500 p-2 sm:px-4"
@@ -59,13 +64,17 @@
 		class="focus:outline-none focus:ring-2 focus:ring-blue-500 mr-4 sm:mr-0"
 		on:click={toggleDarkModeStatus}
 	>
-		<svelte:component this={isDarkMode ? SunIcon : MoonIcon} size="28" />
+		<Icon --size="28px">
+			<svelte:component this={isDarkMode ? FaRegSun : FaRegMoon} size="28" />
+		</Icon>
 	</button>
 	<button
 		aria-label="Open menu"
 		class="focus:outline-none focus:ring-2 focus:ring-blue-500 sm:hidden"
 		on:click={toggleMenuState}
 	>
-		<MenuIcon size="28" />
+		<Icon --size="28px">
+			<FaBars />
+		</Icon>
 	</button>
 </nav>
