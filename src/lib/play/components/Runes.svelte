@@ -48,7 +48,7 @@
 
 <div class="flex flex-col justify-between relative">
 	<div
-		class="first:mb-2 nm-flat-gray-200 dark:nm-flat-gray-800 w-8 h-8 rounded-md overflow-hidden flex items-center justify-center"
+		class="first:mb-2 nm-flat-gray-200 dark:nm-flat-gray-800 w-7 h-7 md:w-9 md:h-9 rounded-md overflow-hidden flex items-center justify-center"
 	>
 		{#if runes[0]}
 			<img class="h-6 w-6" src={resolveKeystoneImageSrc()} alt="" />
@@ -57,10 +57,10 @@
 		{/if}
 	</div>
 	<div
-		class="nm-flat-gray-200 dark:nm-flat-gray-800 w-8 h-8 rounded-md overflow-hidden flex items-center justify-center"
+		class="nm-flat-gray-200 dark:nm-flat-gray-800 w-7 h-7 md:w-9 md:h-9 rounded-md overflow-hidden flex items-center justify-center"
 	>
 		{#if runes[1]}
-			<img class="h-4 w-4" src={resolveSecondaryRunePathImageSrc()} alt="" />
+			<img class="h-5 w-5" src={resolveSecondaryRunePathImageSrc()} alt="" />
 		{:else}
 			<p>?</p>
 		{/if}

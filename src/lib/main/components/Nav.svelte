@@ -32,11 +32,11 @@
 	<div
 		class="transform-gpu fixed nm-flat-gray-200-sm dark:nm-flat-gray-800-sm h-screen w-80 max-w-full top-0 right-0 transition-transform duration-300 flex flex-col p-6 items-center text-xl {isMenuOpen
 			? 'translate-x-full'
-			: ''} sm:static sm:h-auto sm:w-auto sm:bg-transparent sm:shadow-none sm:dark:bg-transparent sm:dark:shadow-none sm:translate-x-0 sm:flex-row"
+			: ''} md:static md:h-auto md:w-auto md:bg-transparent md:shadow-none md:dark:bg-transparent md:dark:shadow-none md:translate-x-0 md:flex-row"
 	>
 		<button
 			aria-label="Close menu"
-			class="focus:outline-none focus:ring-2 focus:ring-blue-500 absolute top-8 right-4 sm:hidden"
+			class="focus:outline-none focus:ring-2 focus:ring-blue-500 absolute top-8 right-4 md:hidden"
 			on:click={toggleMenuState}
 		>
 			<Icon --size="28px">
@@ -44,24 +44,24 @@
 			</Icon>
 		</button>
 		<a
-			class="inline-block focus:outline-none focus:ring-2 focus:ring-blue-500 p-2 sm:px-4"
+			class="inline-block focus:outline-none focus:ring-2 focus:ring-blue-500 p-2 md:px-4"
 			sveltekit:prefetch
 			href="/">Lorem</a
 		>
 		<a
-			class="inline-block focus:outline-none focus:ring-2 focus:ring-blue-500 p-2 sm:px-4"
+			class="inline-block focus:outline-none focus:ring-2 focus:ring-blue-500 p-2 md:px-4"
 			sveltekit:prefetch
 			href="/">Ipsum</a
 		>
 		<a
-			class="inline-block focus:outline-none focus:ring-2 focus:ring-blue-500 p-2 sm:px-4"
+			class="inline-block focus:outline-none focus:ring-2 focus:ring-blue-500 p-2 md:px-4"
 			sveltekit:prefetch
 			href="/">About</a
 		>
 	</div>
 	<button
 		aria-label="Toggle theme to {isDarkMode ? 'light' : 'dark'}"
-		class="focus:outline-none focus:ring-2 focus:ring-blue-500 mr-4 sm:mr-0"
+		class="focus:outline-none focus:ring-2 focus:ring-blue-500 mr-4 md:mr-0"
 		on:click={toggleDarkModeStatus}
 	>
 		<Icon --size="28px">
@@ -70,7 +70,7 @@
 	</button>
 	<button
 		aria-label="Open menu"
-		class="focus:outline-none focus:ring-2 focus:ring-blue-500 sm:hidden"
+		class="focus:outline-none focus:ring-2 focus:ring-blue-500 md:hidden"
 		on:click={toggleMenuState}
 	>
 		<Icon --size="28px">

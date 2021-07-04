@@ -28,7 +28,7 @@
 	game.setGameData({ id: gameStats.gameId, region: gameStats.gameRegion });
 </script>
 
-<div class="flex items-center justify-center flex-col sm:flex-row">
+<div class="flex items-center justify-center flex-col md:flex-row">
 	{#if gameStats}
 		<Team participants={gameStats.participants.slice(0, 5)} teamIndex={0} />
 		<Team participants={gameStats.participants.slice(5, 10)} teamIndex={1} />

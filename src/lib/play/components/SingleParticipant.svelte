@@ -14,23 +14,20 @@
 </script>
 
 <div
-	class="flex mx-3 my-4 justify-items-center items-center pb-10 relative"
+	class="flex my-4 justify-items-center items-center pb-10 relative"
 	class:flex-row-reverse={reversed}
 >
-	<Spacer>
-		<Summoners
-			participantId={participant.championId}
-			summoners={[participant.summoner1Id, participant.summoner2Id]}
-		/>
-	</Spacer>
-	<Spacer x={3}>
-		<Runes
-			runes={[participant.keystoneId, participant.secondaryRunePathId]}
-			participantId={participant.championId}
-		/>
-	</Spacer>
+	<Summoners
+		participantId={participant.championId}
+		summoners={[participant.summoner1Id, participant.summoner2Id]}
+	/>
+	<Spacer x={1} />
+	<Runes
+		runes={[participant.keystoneId, participant.secondaryRunePathId]}
+		participantId={participant.championId}
+	/>
 	<div
-		class="nm-flat-gray-200-lg dark:nm-flat-gray-800-lg w-20 h-20 rounded-lg overflow-hidden relative"
+		class="nm-flat-gray-200-lg dark:nm-flat-gray-800-lg w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden relative mx-2"
 	>
 		<img src={championIcon[participant.championName]} alt="" />
 		<Level championLevel={participant.championLevel} participantId={participant.championId} />

@@ -28,7 +28,7 @@
 	};
 </script>
 
-<div class="flex items-center justify-center mx-2 relative" class:flex-row-reverse={reversed}>
+<div class="flex items-center justify-center relative" class:flex-row-reverse={reversed}>
 	{#if !items}
 		<button
 			on:click={revealItems}
@@ -44,7 +44,7 @@
 	<div class="grid grid-cols-3 gap-2">
 		{#each Array(6) as _, index}
 			<div
-				class="nm-flat-gray-200 dark:nm-flat-gray-800 w-10 h-10 rounded-md overflow-hidden flex items-center justify-center"
+				class="nm-flat-gray-200 dark:nm-flat-gray-800 w-7 h-7 md:w-9 md:h-9 rounded-md overflow-hidden flex items-center justify-center"
 			>
 				{#if !isNaN(items?.[index])}
 					{#if items?.[index] !== 0}
@@ -57,7 +57,7 @@
 		{/each}
 	</div>
 	<div
-		class="nm-flat-gray-200 dark:nm-flat-gray-800 w-10 h-10 rounded-md overflow-hidden flex items-center justify-center mx-2"
+		class="nm-flat-gray-200 dark:nm-flat-gray-800 w-7 h-7 md:w-9 md:h-9 rounded-md overflow-hidden flex items-center justify-center mx-2"
 	>
 		{#if !isNaN(items?.[6])}
 			{#if items?.[6] !== 0}

@@ -32,7 +32,7 @@
 <div class="flex flex-col justify-between h-full relative">
 	{#each summoners as summoner}
 		<div
-			class="first:mb-2 nm-flat-gray-200 dark:nm-flat-gray-800 w-8 h-8 rounded-md overflow-hidden flex items-center justify-center"
+			class="first:mb-2 nm-flat-gray-200 dark:nm-flat-gray-800 w-7 h-7 md:w-9 md:h-9 rounded-md overflow-hidden flex items-center justify-center"
 		>
 			{#if summoner}
 				<img src={summonerIcon[summonersData[summoner].id]} alt="" />
