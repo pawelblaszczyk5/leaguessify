@@ -44,7 +44,9 @@
 					class="nm-flat-gray-200 dark:nm-flat-gray-800 w-10 h-10 rounded-md overflow-hidden flex items-center justify-center"
 				>
 					{#if !isNaN(items?.[index])}
-						<img src={itemIcon['item' + items[index]]} alt="" />
+						{#if items?.[index] !== 0}
+							<img src={itemIcon['item' + items[index]]} alt="" />
+						{/if}
 					{:else}
 						<p>?</p>
 					{/if}
