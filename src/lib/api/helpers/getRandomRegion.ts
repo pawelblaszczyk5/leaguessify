@@ -1,4 +1,4 @@
-import { GameRegion } from '../model/enums/gameRegion';
+import { GameRegion } from '../../shared/model/enums/gameRegion';
 
 export const getRandomRegion = (): GameRegion => {
 	const regions = Object.values(GameRegion);

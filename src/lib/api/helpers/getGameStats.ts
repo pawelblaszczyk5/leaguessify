@@ -1,4 +1,4 @@
-import type { GameRegion } from '../model/enums/gameRegion';
+import type { GameRegion } from '../../shared/model/enums/gameRegion';
 import type { MappedGameData } from '../model/mappedGameData';
 
 import { redis } from '$lib/api/constants/redis';

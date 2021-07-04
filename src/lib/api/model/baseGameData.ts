@@ -1,11 +1,12 @@
-import type { GameRegion } from '../../api/model/enums/gameRegion';
-import type { Position } from '../../api/model/enums/position';
+import type { GameRegion } from '$lib/shared/model/enums/gameRegion';
+import type { Position } from '$lib/shared/model/enums/position';
 
 export interface BaseGameData {
 	gameId: number;
 	gameRegion: GameRegion;
 	gameDuration: number;
 	participants: Array<BaseParticipant>;
+	teams: Array<Record<string, never>>;
 }
 
 interface BaseParticipant {

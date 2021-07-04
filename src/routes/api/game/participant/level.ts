@@ -1,4 +1,4 @@
-import type { GameRegion } from '$lib/api/model/enums/gameRegion';
+import type { GameRegion } from '$lib/shared/model/enums/gameRegion';
 import type { EndpointOutput, Request } from '@sveltejs/kit';
 
 import { getParticipant } from '$lib/api/helpers/getParticipant';

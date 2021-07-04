@@ -1,5 +1,5 @@
-import type { GameRegion } from './enums/gameRegion';
-import type { Position } from './enums/position';
+import type { GameRegion } from '$lib/shared/model/enums/gameRegion';
+import type { Position } from '$lib/shared/model/enums/position';
 
 export interface MappedGameData {
 	gameId: number;

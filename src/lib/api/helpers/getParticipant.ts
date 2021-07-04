@@ -1,4 +1,4 @@
-import type { GameRegion } from '../model/enums/gameRegion';
+import type { GameRegion } from '../../shared/model/enums/gameRegion';
 import type { MappedParticipant } from '../model/mappedGameData';
 
 import { getGameStats } from './getGameStats';

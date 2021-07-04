@@ -1,4 +1,4 @@
-import type { GameRegion } from '../model/enums/gameRegion';
+import type { GameRegion } from '../../shared/model/enums/gameRegion';
 
 import { redis } from '$lib/api/constants/redis';
 import { GAME_IDS_CACHE_TIME } from '../constants/cacheTime';

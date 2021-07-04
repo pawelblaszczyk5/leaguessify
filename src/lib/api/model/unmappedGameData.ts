@@ -1,4 +1,4 @@
-import type { Position } from './enums/position';
+import type { Position } from '$lib/shared/model/enums/position';
 
 export interface UnmappedGameData {
 	info: {
