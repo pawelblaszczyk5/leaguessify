@@ -221,7 +221,7 @@ import item7021 from './item/7021.png';
 import item7022 from './item/7022.png';
 import item8001 from './item/8001.png';
 
-export const itemIcon: Record<string, string> = {
+export const itemIcon = {
 	item1001,
 	item1004,
 	item1006,

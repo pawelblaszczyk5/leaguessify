@@ -13,7 +13,7 @@ import SummonerSnowball from './summoner/SummonerSnowball.png';
 import SummonerSnowURFSnowball_mark from './summoner/SummonerSnowURFSnowball_mark.png';
 import SummonerTeleport from './summoner/SummonerTeleport.png';
 
-export const summoner: Record<string, string> = {
+export const summoner = {
 	SummonerBarrier,
 	SummonerBoost,
 	SummonerDot,

@@ -154,7 +154,7 @@ import Zilean from './champion/Zilean.png';
 import Zoe from './champion/Zoe.png';
 import Zyra from './champion/Zyra.png';
 
-export const championIcon: Record<string, string> = {
+export const championIcon = {
 	Aatrox,
 	Ahri,
 	Akali,
