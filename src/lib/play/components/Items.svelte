@@ -35,6 +35,7 @@
 <div class="flex items-center justify-center relative" class:flex-row-reverse={reversed}>
 	{#if !items}
 		<button
+			aria-label="Reveal items"
 			on:click={revealItems}
 			class="w-full h-full absolute flex items-center justify-center bg-gray-200 bg-opacity-80 dark:bg-gray-800 dark:bg-opacity-80 m-2 -top-2 -left-2"
 			class:pl-14={reversed}

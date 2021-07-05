@@ -52,6 +52,7 @@
 		<div class="flex items-center relative">
 			{#if isNaN(kda[0])}
 				<button
+					aria-label="Reveal KDA"
 					on:click={revealKDA}
 					class="w-full h-full absolute flex items-center justify-center bg-gray-200 bg-opacity-80 dark:bg-gray-800 dark:bg-opacity-80"
 				>
@@ -68,6 +69,7 @@
 		<div class="flex items-center ml-2 relative">
 			{#if isNaN(gold)}
 				<button
+					aria-label="Reveal gold"
 					on:click={revealGold}
 					class="w-full h-full absolute flex items-center justify-center bg-gray-200 bg-opacity-80 dark:bg-gray-800 dark:bg-opacity-80"
 				>

@@ -32,7 +32,11 @@
 >
 	{championLevel ?? '??'}
 	{#if !championLevel}
-		<button on:click={revealChampionLevel} class="absolute bg-blue-500 bg-opacity-80">
+		<button
+			aria-label="Reveal level"
+			on:click={revealChampionLevel}
+			class="absolute bg-blue-500 bg-opacity-80"
+		>
 			<Icon --size="14px">
 				<FaEye />
 			</Icon>
