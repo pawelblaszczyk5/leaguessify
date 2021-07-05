@@ -4,6 +4,7 @@
 	import { game } from '../stores/game';
 	import FaEye from 'svelte-icons/fa/FaEye.svelte';
 	import Icon from '$lib/shared/components/Icon.svelte';
+	import itemData from '$lib/shared/data/item.json';
 
 	export let items: Array<number>;
 	export let participantId: number;
@@ -30,6 +31,10 @@
 	const retrieveItemImageSrc = (id: number): string => {
 		return itemIcon['item' + id];
 	};
+
+	const retrieveItemName = (id: number): string => {
+		return itemData[id].name;
+	};
 </script>
 
 <div class="flex items-center justify-center relative" class:flex-row-reverse={reversed}>
@@ -53,7 +58,7 @@
 			>
 				{#if !isNaN(items?.[index])}
 					{#if items?.[index] !== 0}
-						<img src={retrieveItemImageSrc(items[index])} alt="" />
+						<img src={retrieveItemImageSrc(items[index])} alt={retrieveItemName(items[index])} />
 					{/if}
 				{:else}
 					<p>?</p>
@@ -66,7 +71,7 @@
 	>
 		{#if !isNaN(items?.[6])}
 			{#if items?.[6] !== 0}
-				<img src={retrieveItemImageSrc(items[6])} alt="" />
+				<img src={retrieveItemImageSrc(items[6])} alt={retrieveItemName(items[6])} />
 			{/if}
 		{:else}
 			<p>?</p>
