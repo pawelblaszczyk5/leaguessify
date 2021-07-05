@@ -27,6 +27,14 @@
 			console.log(e);
 		}
 	};
+
+	const resolveSummonerImageSrc = (id: number): string => {
+		return summonerIcon[summonersData[id].id];
+	};
+
+	const resolveSummonerName = (id: number): string => {
+		return summonersData[id].name;
+	};
 </script>
 
 <div class="flex flex-col justify-between h-full relative">
@@ -35,7 +43,7 @@
 			class="first:mb-2 nm-flat-gray-200 dark:nm-flat-gray-800 w-7 h-7 md:w-9 md:h-9 rounded-md overflow-hidden flex items-center justify-center"
 		>
 			{#if summoner}
-				<img src={summonerIcon[summonersData[summoner].id]} alt="" />
+				<img src={resolveSummonerImageSrc(summoner)} alt={resolveSummonerName(summoner)} />
 			{:else}
 				<p>?</p>
 			{/if}
