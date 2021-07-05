@@ -26,6 +26,10 @@
 			console.log(e);
 		}
 	};
+
+	const retrieveItemImageSrc = (id: number): string => {
+		return itemIcon['item' + id];
+	};
 </script>
 
 <div class="flex items-center justify-center relative" class:flex-row-reverse={reversed}>
@@ -48,7 +52,7 @@
 			>
 				{#if !isNaN(items?.[index])}
 					{#if items?.[index] !== 0}
-						<img src={itemIcon['item' + items[index]]} alt="" />
+						<img src={retrieveItemImageSrc(items[index])} alt="" />
 					{/if}
 				{:else}
 					<p>?</p>
@@ -61,7 +65,7 @@
 	>
 		{#if !isNaN(items?.[6])}
 			{#if items?.[6] !== 0}
-				<img src={itemIcon['item' + items[6]]} alt="" />
+				<img src={retrieveItemImageSrc(items[6])} alt="" />
 			{/if}
 		{:else}
 			<p>?</p>
