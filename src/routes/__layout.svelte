@@ -45,6 +45,6 @@
 	</a>
 	<Nav />
 </header>
-<main class="py-4 sm:px-4 md:px-6">
+<main class="py-4 px-4 md:px-6">
 	<slot />
 </main>
