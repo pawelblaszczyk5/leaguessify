@@ -8,9 +8,18 @@
 	import Runes from './Runes.svelte';
 	import Information from './Information.svelte';
 	import Level from './Level.svelte';
+	import championData from '$lib/shared/data/champion.json';
 
 	export let participant: Participant;
 	export let reversed = false;
+
+	const resolveChampionImageSrc = (name: string): string => {
+		return championIcon[name];
+	};
+
+	const resolveChampionName = (name: string): string => {
+		return championData[name].name;
+	};
 </script>
 
 <div
@@ -29,7 +38,10 @@
 	<div
 		class="nm-flat-gray-200-lg dark:nm-flat-gray-800-lg w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden relative mx-2"
 	>
-		<img src={championIcon[participant.championName]} alt="" />
+		<img
+			src={resolveChampionImageSrc(participant.championName)}
+			alt={resolveChampionName(participant.championName)}
+		/>
 		<Level championLevel={participant.championLevel} participantId={participant.championId} />
 	</div>
 	<div class="flex justify-between flex-col" class:items-end={reversed}>
