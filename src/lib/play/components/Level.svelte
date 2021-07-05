@@ -30,6 +30,7 @@
 	class="absolute h-6 w-6 rounded-full bg-blue-500 bottom-0 right-0 flex items-center justify-center text-xs text-gray-200"
 	class:bg-opacity-80={!championLevel}
 >
+	<span class="sr-only">Champion level</span>
 	{championLevel ?? '??'}
 	{#if !championLevel}
 		<button

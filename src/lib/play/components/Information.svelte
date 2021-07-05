@@ -64,6 +64,7 @@
 			<Icon --size="14px">
 				<IoIosStats />
 			</Icon>
+			<span class="sr-only">K/D/A</span>
 			<span> &nbsp; {!isNaN(kda[0]) ? `${kda[0]}/${kda[1]}/${kda[2]}` : '?/?/?'} </span>
 		</div>
 		<div class="flex items-center ml-2 relative">
@@ -81,7 +82,7 @@
 			<Icon --size="14px">
 				<FaCoins />
 			</Icon>
-			<div />
+			<span class="sr-only">Gold amount:</span>
 			<span> &nbsp; {gold ?? '?????'}</span>
 		</div>
 	</div>
