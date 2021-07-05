@@ -28,11 +28,11 @@
 		}
 	};
 
-	const retrieveItemImageSrc = (id: number): string => {
+	const resolveItemImageSrc = (id: number): string => {
 		return itemIcon['item' + id];
 	};
 
-	const retrieveItemName = (id: number): string => {
+	const resolveItemName = (id: number): string => {
 		return itemData[id].name;
 	};
 </script>
@@ -58,7 +58,7 @@
 			>
 				{#if !isNaN(items?.[index])}
 					{#if items?.[index] !== 0}
-						<img src={retrieveItemImageSrc(items[index])} alt={retrieveItemName(items[index])} />
+						<img src={resolveItemImageSrc(items[index])} alt={resolveItemName(items[index])} />
 					{/if}
 				{:else}
 					<p>?</p>
@@ -71,7 +71,7 @@
 	>
 		{#if !isNaN(items?.[6])}
 			{#if items?.[6] !== 0}
-				<img src={retrieveItemImageSrc(items[6])} alt={retrieveItemName(items[6])} />
+				<img src={resolveItemImageSrc(items[6])} alt={resolveItemName(items[6])} />
 			{/if}
 		{:else}
 			<p>?</p>
