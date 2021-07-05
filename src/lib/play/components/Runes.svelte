@@ -27,22 +27,38 @@
 		}
 	};
 
-	const resolveKeystoneImageSrc = (): string => {
-		const keystoneName = Object.values(
+	const resolveKeystoneImageSrc = (id: number): string => {
+		const keystoneKey = Object.values(
 			Object.values(runesData).map((path) => {
 				return Object.entries(path.keystones);
 			})
 		)
 			.flat()
 			.find(([keystoneId]) => {
-				return keystoneId === runes[0].toString();
-			})[1].name;
+				return keystoneId === id.toString();
+			})[1].key;
 
-		return runeIcon[keystoneName];
+		return runeIcon[keystoneKey];
 	};
 
-	const resolveSecondaryRunePathImageSrc = (): string => {
-		return runeIcon[runesData[runes[1]].name];
+	const resolveSecondaryRunePathImageSrc = (id: number): string => {
+		return runeIcon[runesData[id].key];
+	};
+
+	const resolveKeystoneName = (id: number) => {
+		return Object.values(
+			Object.values(runesData).map((path) => {
+				return Object.entries(path.keystones);
+			})
+		)
+			.flat()
+			.find(([keystoneId]) => {
+				return keystoneId === id.toString();
+			})[1].name;
+	};
+
+	const resolveSecondaryRunePathName = (id: number): string => {
+		return runesData[id].name;
 	};
 </script>
 
@@ -51,7 +67,11 @@
 		class="first:mb-2 nm-flat-gray-200 dark:nm-flat-gray-800 w-7 h-7 md:w-9 md:h-9 rounded-md overflow-hidden flex items-center justify-center"
 	>
 		{#if runes[0]}
-			<img class="h-6 w-6" src={resolveKeystoneImageSrc()} alt="" />
+			<img
+				class="h-6 w-6"
+				src={resolveKeystoneImageSrc(runes[0])}
+				alt={resolveKeystoneName(runes[0])}
+			/>
 		{:else}
 			<p>?</p>
 		{/if}
@@ -60,7 +80,11 @@
 		class="nm-flat-gray-200 dark:nm-flat-gray-800 w-7 h-7 md:w-9 md:h-9 rounded-md overflow-hidden flex items-center justify-center"
 	>
 		{#if runes[1]}
-			<img class="h-5 w-5" src={resolveSecondaryRunePathImageSrc()} alt="" />
+			<img
+				class="h-5 w-5"
+				src={resolveSecondaryRunePathImageSrc(runes[1])}
+				alt={resolveSecondaryRunePathName(runes[1])}
+			/>
 		{:else}
 			<p>?</p>
 		{/if}
