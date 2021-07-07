@@ -39,7 +39,7 @@
 			class="focus:outline-none focus:ring-2 focus:ring-blue-500 absolute top-8 right-4 md:hidden"
 			on:click={toggleMenuState}
 		>
-			<Icon --size="28px">
+			<Icon --size="1.75rem">
 				<FaTimes />
 			</Icon>
 		</button>
@@ -64,7 +64,7 @@
 		class="focus:outline-none focus:ring-2 focus:ring-blue-500 mr-4 md:mr-0"
 		on:click={toggleDarkModeStatus}
 	>
-		<Icon --size="28px">
+		<Icon --size="1.75rem">
 			<svelte:component this={isDarkMode ? FaRegSun : FaRegMoon} size="28" />
 		</Icon>
 	</button>
@@ -73,7 +73,7 @@
 		class="focus:outline-none focus:ring-2 focus:ring-blue-500 md:hidden"
 		on:click={toggleMenuState}
 	>
-		<Icon --size="28px">
+		<Icon --size="1.75rem">
 			<FaBars />
 		</Icon>
 	</button>

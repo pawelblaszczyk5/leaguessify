@@ -43,7 +43,7 @@
 			on:click={revealChampionLevel}
 			class="absolute bg-blue-500 bg-opacity-80"
 		>
-			<Icon --size="14px">
+			<Icon --size="1rem">
 				<FaEye />
 			</Icon>
 		</button>

@@ -47,7 +47,7 @@
 			class:pl-14={reversed}
 			class:pr-14={!reversed}
 		>
-			<Icon --size="16px">
+			<Icon --size="1rem">
 				<FaEye />
 			</Icon>
 		</button>

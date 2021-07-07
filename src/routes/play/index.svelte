@@ -42,8 +42,16 @@
 			&nbsp;{formatTime(gameStats.gameDuration)}
 		</p>
 		<div class="flex items-center justify-center flex-col md:flex-row">
-			<Team participants={gameStats.participants.slice(0, 5)} teamIndex={0} />
-			<Team participants={gameStats.participants.slice(5, 10)} teamIndex={1} />
+			<Team
+				participants={gameStats.participants.slice(0, 5)}
+				team={gameStats.teams[0]}
+				teamIndex={0}
+			/>
+			<Team
+				participants={gameStats.participants.slice(5, 10)}
+				team={gameStats.teams[1]}
+				teamIndex={1}
+			/>
 		</div>
 	{/if}
 </section>

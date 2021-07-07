@@ -57,13 +57,13 @@
 					on:click={revealKDA}
 					class="w-full h-full absolute flex items-center justify-center bg-gray-200 bg-opacity-80 dark:bg-gray-800 dark:bg-opacity-80"
 				>
-					<Icon --size="16px">
+					<Icon --size="1rem">
 						<FaEye />
 					</Icon>
 				</button>
 			{/if}
 			<div class="flex items-center" use:tooltip={{ content: 'K/D/A', shouldShow: !isNaN(kda[0]) }}>
-				<Icon --size="14px">
+				<Icon --size="0.875rem">
 					<IoIosStats />
 				</Icon>
 				<span class="sr-only">K/D/A</span>
@@ -79,13 +79,13 @@
 					on:click={revealGold}
 					class="w-full h-full absolute flex items-center justify-center bg-gray-200 bg-opacity-80 dark:bg-gray-800 dark:bg-opacity-80"
 				>
-					<Icon --size="16px">
+					<Icon --size="1rem">
 						<FaEye />
 					</Icon>
 				</button>
 			{/if}
 			<div class="flex items-center" use:tooltip={{ content: 'Gold', shouldShow: !isNaN(kda[0]) }}>
-				<Icon --size="14px">
+				<Icon --size="0.875rem">
 					<FaCoins />
 				</Icon>
 				<span class="sr-only">Gold amount:</span>
