@@ -42,4 +42,5 @@ interface UnmappedParticipant {
 	summoner1Id: number;
 	summoner2Id: number;
 	teamPosition: Position;
+	teamEarlySurrendered: boolean;
 }

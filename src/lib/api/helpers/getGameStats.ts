@@ -1,10 +1,13 @@
 import type { GameRegion } from '../../shared/model/enums/gameRegion';
 import type { MappedGameData } from '../model/mappedGameData';
+import type { UnmappedGameData } from '../model/unmappedGameData';
 
 import { redis } from '$lib/api/constants/redis';
 import { GAME_STATS_CACHE_TIME } from '../constants/cacheTime';
 import { riotAPI } from '../constants/riotApiUrl';
 import { mapDataFromApi } from './mapDataFromApi';
+import { getRandomGameId } from './getRandomGameId';
+import { getRandomRegion } from './getRandomRegion';
 
 export const getGameStats = async (region: GameRegion, id: number): Promise<MappedGameData> => {
 	const gameJoinedId = `${region}_${id}`;
@@ -25,7 +28,16 @@ export const getGameStats = async (region: GameRegion, id: number): Promise<Mapp
 	);
 
 	if (gameStatsResponse.status === 200) {
-		const gameStatsData = await gameStatsResponse.json();
+		const gameStatsData: UnmappedGameData = await gameStatsResponse.json();
+		if (
+			gameStatsData.info.participants[0].teamEarlySurrendered ||
+			gameStatsData.info.participants[5].teamEarlySurrendered
+		) {
+			const region = getRandomRegion();
+			const gameId = await getRandomGameId(region);
+
+			return getGameStats(region, gameId);
+		}
 		const mappedGameData = mapDataFromApi(gameStatsData, id, region);
 
 		redis.set(gameJoinedId, JSON.stringify(mappedGameData), 'EX', GAME_STATS_CACHE_TIME);
