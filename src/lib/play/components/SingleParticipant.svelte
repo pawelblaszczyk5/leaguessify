@@ -18,7 +18,7 @@
 	};
 
 	const resolveChampionName = (name: string): string => {
-		return championData[name].name;
+		return championData[name]?.name;
 	};
 </script>
 
