@@ -37,6 +37,7 @@
 	"type": "module",
 	"dependencies": {
 		"svelte-icons": "^2.1.0",
-		"tailwindcss-neumorphism": "^0.1.0"
+		"tailwindcss-neumorphism": "^0.1.0",
+		"tippy.js": "^6.3.1"
 	}
 }
