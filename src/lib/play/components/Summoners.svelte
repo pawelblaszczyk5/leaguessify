@@ -5,6 +5,7 @@
 	import { game } from '../stores/game';
 	import FaEye from 'svelte-icons/fa/FaEye.svelte';
 	import Icon from '$lib/shared/components/Icon.svelte';
+	import { tooltip } from '$lib/shared/actions/tooltip';
 
 	export let participantId: number;
 	export let summoners: [number, number];
@@ -41,6 +42,10 @@
 	{#each summoners as summoner}
 		<div
 			class="first:mb-2 nm-flat-gray-200 dark:nm-flat-gray-800 w-7 h-7 md:w-9 md:h-9 rounded-md overflow-hidden flex items-center justify-center"
+			use:tooltip={{
+				content: Boolean(summoner) ? resolveSummonerName(summoner) : '',
+				shouldShow: Boolean(summoner)
+			}}
 		>
 			{#if summoner}
 				<img src={resolveSummonerImageSrc(summoner)} alt={resolveSummonerName(summoner)} />

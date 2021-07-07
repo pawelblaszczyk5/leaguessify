@@ -5,6 +5,7 @@
 	import FaEye from 'svelte-icons/fa/FaEye.svelte';
 	import Icon from '$lib/shared/components/Icon.svelte';
 	import itemData from '$lib/shared/data/item.json';
+	import { tooltip } from '$lib/shared/actions/tooltip';
 
 	export let items: Array<number>;
 	export let participantId: number;
@@ -55,6 +56,11 @@
 		{#each Array(6) as _, index}
 			<div
 				class="nm-flat-gray-200 dark:nm-flat-gray-800 w-7 h-7 md:w-9 md:h-9 rounded-md overflow-hidden flex items-center justify-center"
+				use:tooltip={{
+					content:
+						!isNaN(items?.[index]) && items?.[index] !== 0 ? resolveItemName(items[index]) : '',
+					shouldShow: !isNaN(items?.[index]) && items?.[index] !== 0
+				}}
 			>
 				{#if !isNaN(items?.[index])}
 					{#if items?.[index] !== 0}
@@ -68,6 +74,10 @@
 	</div>
 	<div
 		class="nm-flat-gray-200 dark:nm-flat-gray-800 w-7 h-7 md:w-9 md:h-9 rounded-md overflow-hidden flex items-center justify-center mx-2"
+		use:tooltip={{
+			content: !isNaN(items?.[6]) && items?.[6] !== 0 ? resolveItemName(items[6]) : '',
+			shouldShow: !isNaN(items?.[6]) && items?.[6] !== 0
+		}}
 	>
 		{#if !isNaN(items?.[6])}
 			{#if items?.[6] !== 0}

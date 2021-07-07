@@ -9,6 +9,7 @@
 	import Information from './Information.svelte';
 	import Level from './Level.svelte';
 	import championData from '$lib/shared/data/champion.json';
+	import { tooltip } from '$lib/shared/actions/tooltip';
 
 	export let participant: Participant;
 	export let reversed = false;
@@ -41,6 +42,7 @@
 		<img
 			src={resolveChampionImageSrc(participant.championName)}
 			alt={resolveChampionName(participant.championName)}
+			use:tooltip={{ content: resolveChampionName(participant.championName) }}
 		/>
 		<Level championLevel={participant.championLevel} participantId={participant.championId} />
 	</div>

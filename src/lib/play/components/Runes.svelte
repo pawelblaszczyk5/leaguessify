@@ -5,6 +5,7 @@
 	import { game } from '../stores/game';
 	import FaEye from 'svelte-icons/fa/FaEye.svelte';
 	import Icon from '$lib/shared/components/Icon.svelte';
+	import { tooltip } from '$lib/shared/actions/tooltip';
 
 	export let runes: [number, number];
 	export let participantId: number;
@@ -65,6 +66,10 @@
 <div class="flex flex-col justify-between relative">
 	<div
 		class="first:mb-2 nm-flat-gray-200 dark:nm-flat-gray-800 w-7 h-7 md:w-9 md:h-9 rounded-md overflow-hidden flex items-center justify-center"
+		use:tooltip={{
+			content: Boolean(runes[0]) ? resolveKeystoneName(runes[0]) : '',
+			shouldShow: Boolean(runes[0])
+		}}
 	>
 		{#if runes[0]}
 			<img
@@ -78,6 +83,10 @@
 	</div>
 	<div
 		class="nm-flat-gray-200 dark:nm-flat-gray-800 w-7 h-7 md:w-9 md:h-9 rounded-md overflow-hidden flex items-center justify-center"
+		use:tooltip={{
+			content: Boolean(runes[1]) ? resolveSecondaryRunePathName(runes[1]) : '',
+			shouldShow: Boolean(runes[1])
+		}}
 	>
 		{#if runes[1]}
 			<img

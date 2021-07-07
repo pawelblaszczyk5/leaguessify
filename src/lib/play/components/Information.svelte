@@ -5,6 +5,7 @@
 	import { get } from 'svelte/store';
 	import { game } from '../stores/game';
 	import FaEye from 'svelte-icons/fa/FaEye.svelte';
+	import { tooltip } from '$lib/shared/actions/tooltip';
 
 	export let kda: [number, number, number];
 	export let gold: number;
@@ -61,11 +62,15 @@
 					</Icon>
 				</button>
 			{/if}
-			<Icon --size="14px">
-				<IoIosStats />
-			</Icon>
-			<span class="sr-only">K/D/A</span>
-			<span> &nbsp; {!isNaN(kda[0]) ? `${kda[0]}/${kda[1]}/${kda[2]}` : '?/?/?'} </span>
+			<div class="flex items-center" use:tooltip={{ content: 'K/D/A', shouldShow: !isNaN(kda[0]) }}>
+				<Icon --size="14px">
+					<IoIosStats />
+				</Icon>
+				<span class="sr-only">K/D/A</span>
+				<span>
+					&nbsp; {!isNaN(kda[0]) ? `${kda[0]}/${kda[1]}/${kda[2]}` : '?/?/?'}
+				</span>
+			</div>
 		</div>
 		<div class="flex items-center ml-2 relative">
 			{#if isNaN(gold)}
@@ -79,11 +84,13 @@
 					</Icon>
 				</button>
 			{/if}
-			<Icon --size="14px">
-				<FaCoins />
-			</Icon>
-			<span class="sr-only">Gold amount:</span>
-			<span> &nbsp; {gold ?? '?????'}</span>
+			<div class="flex items-center" use:tooltip={{ content: 'Gold', shouldShow: !isNaN(kda[0]) }}>
+				<Icon --size="14px">
+					<FaCoins />
+				</Icon>
+				<span class="sr-only">Gold amount:</span>
+				<span> &nbsp; {gold ?? '?????'}</span>
+			</div>
 		</div>
 	</div>
 </div>

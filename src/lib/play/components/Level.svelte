@@ -3,6 +3,7 @@
 	import { game } from '../stores/game';
 	import FaEye from 'svelte-icons/fa/FaEye.svelte';
 	import Icon from '$lib/shared/components/Icon.svelte';
+	import { tooltip } from '$lib/shared/actions/tooltip';
 
 	export let championLevel: number;
 	export let participantId: number;
@@ -29,6 +30,10 @@
 <div
 	class="absolute h-6 w-6 rounded-full bg-blue-500 bottom-0 right-0 flex items-center justify-center text-xs text-gray-200"
 	class:bg-opacity-80={!championLevel}
+	use:tooltip={{
+		content: 'Champion level',
+		shouldShow: Boolean(championLevel)
+	}}
 >
 	<span class="sr-only">Champion level</span>
 	{championLevel ?? '??'}
