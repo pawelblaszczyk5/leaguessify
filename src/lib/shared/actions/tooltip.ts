@@ -1,4 +1,5 @@
 import tippy from 'tippy.js';
+import 'tippy.js/animations/scale.css';
 
 interface TooltipConfig {
 	content: string;
@@ -11,7 +12,8 @@ interface TooltipActionReturn {
 }
 
 const defaultTippyConfig = {
-	theme: 'blue'
+	theme: 'blue',
+	animation: 'scale'
 };
 
 export const tooltip = (node: HTMLElement, config: TooltipConfig): TooltipActionReturn => {
