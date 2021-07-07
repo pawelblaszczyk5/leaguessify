@@ -27,8 +27,9 @@ export const getGameStats = async (region: GameRegion, id: number): Promise<Mapp
 		}
 	);
 
-	if (gameStatsResponse.status === 200) {
+	if (gameStatsResponse.ok) {
 		const gameStatsData: UnmappedGameData = await gameStatsResponse.json();
+
 		if (
 			gameStatsData.info.participants[0].teamEarlySurrendered ||
 			gameStatsData.info.participants[5].teamEarlySurrendered
