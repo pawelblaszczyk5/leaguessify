@@ -15,7 +15,7 @@ export const get = async (request: Request): Promise<EndpointOutput> => {
 		return {
 			status: 200,
 			body: {
-				baronKills: team.championKills
+				championKills: team.championKills
 			}
 		};
 	} catch (e) {
