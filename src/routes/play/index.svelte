@@ -32,7 +32,7 @@
 <section class="flex flex-col justify-center items-center">
 	{#if gameStats}
 		<Duration gameDuration={gameStats.gameDuration} />
-		<div class="flex items-center justify-center flex-col md:flex-row">
+		<div class="flex items-center justify-center flex-col md:flex-row my-4">
 			<Team
 				participants={gameStats.participants.slice(0, 5)}
 				team={gameStats.teams[0]}

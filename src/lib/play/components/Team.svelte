@@ -13,6 +13,8 @@
 	import { tooltip } from '$lib/shared/actions/tooltip';
 	import { get } from 'svelte/store';
 	import { game } from '../stores/game';
+	import Button from '$lib/shared/components/Button.svelte';
+	import Spacer from '$lib/shared/components/Spacer.svelte';
 
 	export let teamIndex: 0 | 1;
 	export let participants: Array<Participant>;
@@ -82,6 +84,7 @@
 			console.log(e);
 		}
 	};
+
 	const revealInhibitorKills = async () => {
 		try {
 			const inhibitorKillsResponse = await fetch(`api/game/team/inhibitorKills?${getParams()}`);
@@ -92,6 +95,8 @@
 			console.log(e);
 		}
 	};
+
+	const guessWinningTeam = () => {};
 </script>
 
 <div class="flex flex-col items-center justify-center">
@@ -246,4 +251,7 @@
 			<SingleParticipant {participant} reversed={Boolean(teamIndex)} />
 		{/each}
 	</div>
+	<Spacer y={4}>
+		<Button on:click={guessWinningTeam}>Guess</Button>
+	</Spacer>
 </div>
