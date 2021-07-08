@@ -11,28 +11,86 @@
 	import GiSpikedDragonHead from 'svelte-icons/gi/GiSpikedDragonHead.svelte';
 	import GiCircularSaw from 'svelte-icons/gi/GiCircularSaw.svelte';
 	import { tooltip } from '$lib/shared/actions/tooltip';
+	import { get } from 'svelte/store';
+	import { game } from '../stores/game';
 
 	export let teamIndex: 0 | 1;
 	export let participants: Array<Participant>;
 	export let team: Team;
 
-	const revealChampionKills = () => {
-		team.championKills = 5;
+	const getParams = (): string => {
+		const gameData = get(game);
+
+		return new URLSearchParams({
+			gameId: gameData.id.toString(),
+			gameRegion: gameData.region,
+			teamId: teamIndex.toString()
+		}).toString();
 	};
-	const revealTowerKills = () => {
-		team.towerKills = 12;
+
+	const revealChampionKills = async () => {
+		try {
+			const championKillsResponse = await fetch(`api/game/team/championKills?${getParams()}`);
+			const championKillsData: { championKills: number } = await championKillsResponse.json();
+
+			team.championKills = championKillsData.championKills;
+		} catch (e) {
+			console.log(e);
+		}
 	};
-	const revealDragonKills = () => {
-		team.dragonKills = 3;
+
+	const revealTowerKills = async () => {
+		try {
+			const towerKillsResponse = await fetch(`api/game/team/towerKills?${getParams()}`);
+			const towerKillsData: { towerKills: number } = await towerKillsResponse.json();
+
+			team.towerKills = towerKillsData.towerKills;
+		} catch (e) {
+			console.log(e);
+		}
 	};
-	const revealRiftHeraldKills = () => {
-		team.riftHeraldKills = 4;
+
+	const revealDragonKills = async () => {
+		try {
+			const dragonKillsResponse = await fetch(`api/game/team/dragonKills?${getParams()}`);
+			const dragonKillsData: { dragonKills: number } = await dragonKillsResponse.json();
+
+			team.dragonKills = dragonKillsData.dragonKills;
+		} catch (e) {
+			console.log(e);
+		}
 	};
-	const revealBaronKills = () => {
-		team.baronKills = 2;
+
+	const revealRiftHeraldKills = async () => {
+		try {
+			const riftHeraldKillsResponse = await fetch(`api/game/team/riftHeraldKills?${getParams()}`);
+			const riftHeraldKillsData: { riftHeraldKills: number } = await riftHeraldKillsResponse.json();
+
+			team.riftHeraldKills = riftHeraldKillsData.riftHeraldKills;
+		} catch (e) {
+			console.log(e);
+		}
 	};
-	const revealInhibitorKills = () => {
-		team.inhibitorKills = 0;
+
+	const revealBaronKills = async () => {
+		try {
+			const baronKillsResponse = await fetch(`api/game/team/baronKills?${getParams()}`);
+			const baronKillsData: { baronKills: number } = await baronKillsResponse.json();
+
+			team.baronKills = baronKillsData.baronKills;
+		} catch (e) {
+			console.log(e);
+		}
+	};
+	const revealInhibitorKills = async () => {
+		try {
+			const inhibitorKillsResponse = await fetch(`api/game/team/inhibitorKills?${getParams()}`);
+			const inhibitorKillsData: { inhibitorKills: number } = await inhibitorKillsResponse.json();
+
+			team.inhibitorKills = inhibitorKillsData.inhibitorKills;
+		} catch (e) {
+			console.log(e);
+		}
 	};
 </script>
 
