@@ -4,6 +4,7 @@
 	import '../app.postcss';
 	import oneLetterLogoWebpSrc from '../assets/oneLetterLogo.webp';
 	import oneLetterLogoPngSrc from '../assets/oneLetterLogo.png';
+	import Toast from '$lib/shared/components/Toast.svelte';
 
 	let floatingHeader = false;
 
@@ -48,3 +49,4 @@
 <main class="py-4 px-4 md:px-6">
 	<slot />
 </main>
+<Toast />
