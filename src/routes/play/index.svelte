@@ -23,6 +23,7 @@
 	import Team from '$lib/play/components/Team.svelte';
 	import { game } from '$lib/play/stores/game';
 	import Duration from '$lib/play/components/Duration.svelte';
+	import Score from '$lib/play/components/Score.svelte';
 
 	export let gameStats: Game;
 
@@ -30,6 +31,7 @@
 </script>
 
 <section class="flex flex-col justify-center items-center">
+	<Score />
 	{#if gameStats}
 		<Duration gameDuration={gameStats.gameDuration} />
 		<div class="flex items-center justify-center flex-col md:flex-row my-4">
