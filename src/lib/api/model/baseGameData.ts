@@ -4,7 +4,6 @@ import type { Position } from '$lib/shared/model/enums/position';
 export interface BaseGameData {
 	gameId: number;
 	gameRegion: GameRegion;
-	gameDuration: number;
 	participants: Array<BaseParticipant>;
 	teams: Array<Record<string, never>>;
 }
