@@ -10,7 +10,7 @@ export const handleError = (error: unknown): EndpointOutput => {
 	} else {
 		return {
 			status: 500,
-			body: 'Unexpected error occured'
+			body: 'Unexpected error occurred'
 		};
 	}
 };

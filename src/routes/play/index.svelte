@@ -4,6 +4,12 @@
 	export const load = async (input: LoadInput): Promise<LoadOutput> => {
 		try {
 			const baseGameResponse = await input.fetch('api/game/base');
+
+			if (!baseGameResponse.ok) {
+				const errorText = await baseGameResponse.text();
+
+				throw { status: baseGameResponse.status, message: errorText };
+			}
 			const baseGameData = await baseGameResponse.json();
 
 			return {
@@ -12,7 +18,10 @@
 				}
 			};
 		} catch (e) {
-			console.log(e);
+			return {
+				status: e.status ?? 500,
+				error: e.message ?? 'Unexpected error occurred'
+			};
 		}
 	};
 </script>
