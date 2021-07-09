@@ -41,13 +41,38 @@
 
 	export let gameStats: Game;
 
-	game.setGameData({ id: gameStats.gameId, region: gameStats.gameRegion });
+	const setGameData = (gameStats: Game) => {
+		game.setGameData({ id: gameStats.gameId, region: gameStats.gameRegion });
+	};
 
-	const fetchNewGame = async () => {};
+	const fetchNewGame = async () => {
+		requestInProgress.startRequest();
 
-	const handleLoss = () => {};
+		try {
+			const baseGameResponse = await fetch('api/game/base');
 
-	const handleWin = () => {};
+			if (!baseGameResponse.ok) {
+				await handleRequestNotOk(baseGameResponse);
+				return;
+			}
+			const baseGameData = await baseGameResponse.json();
+
+			gameStats = baseGameData;
+		} catch {
+			callErrorToast();
+		} finally {
+			requestInProgress.endRequest();
+		}
+	};
+
+	const handleLoss = () => {
+		requestInProgress.endRequest();
+		// TODO - MODAL WITH INFO AND AFTER SELECTING REPLY SHOULD END REQUEST
+	};
+
+	const handleWin = () => {
+		fetchNewGame();
+	};
 
 	const checkGuess = async (event: CustomEvent<number>) => {
 		if (!checkCanSendRequest()) {
@@ -73,10 +98,11 @@
 			resultData.result === 'WIN' ? handleWin() : handleLoss();
 		} catch {
 			callErrorToast();
-		} finally {
 			requestInProgress.endRequest();
 		}
 	};
+
+	$: setGameData(gameStats);
 </script>
 
 <section class="flex flex-col justify-center items-center">
