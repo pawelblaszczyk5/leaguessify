@@ -58,8 +58,8 @@
 			}
 			const championKillsData: { championKills: number } = await championKillsResponse.json();
 
-			team.championKills = championKillsData.championKills;
 			reduceScoreAfterRevealing(revealType);
+			team.championKills = championKillsData.championKills;
 		} catch {
 			callErrorToast();
 		} finally {
@@ -139,6 +139,7 @@
 			}
 			const riftHeraldKillsData: { riftHeraldKills: number } = await riftHeraldKillsResponse.json();
 
+			reduceScoreAfterRevealing(revealType);
 			team.riftHeraldKills = riftHeraldKillsData.riftHeraldKills;
 		} catch {
 			callErrorToast();
