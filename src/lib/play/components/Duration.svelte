@@ -6,10 +6,21 @@
 	import FaEye from 'svelte-icons/fa/FaEye.svelte';
 	import { get } from 'svelte/store';
 	import { game } from '../stores/game';
+	import { requestInProgress } from '$lib/shared/stores/requestInProgress';
+	import { callErrorToast } from '../helpers/callErrorToast';
+	import { callRequestInProgressToast } from '../helpers/callRequestInProgressToast';
 
 	export let gameDuration: number;
 
 	const revealGameDuration = async () => {
+		const isRequestInProgress = get(requestInProgress);
+
+		if (isRequestInProgress) {
+			callRequestInProgressToast();
+			return;
+		}
+		requestInProgress.startRequest();
+
 		const gameData = get(game);
 		const params = new URLSearchParams({
 			gameId: gameData.id.toString(),
@@ -18,11 +29,20 @@
 
 		try {
 			const gameDurationResponse = await fetch(`api/game/duration?${params}`);
+
+			if (!gameDurationResponse.ok) {
+				const errorText = await gameDurationResponse.text();
+
+				callErrorToast(errorText);
+				return;
+			}
 			const gameDurationData: { duration: number } = await gameDurationResponse.json();
 
 			gameDuration = gameDurationData.duration;
 		} catch (e) {
-			console.log(e);
+			callErrorToast();
+		} finally {
+			requestInProgress.endRequest();
 		}
 	};
 </script>
