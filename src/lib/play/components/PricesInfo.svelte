@@ -25,7 +25,7 @@
 
 <button
 	on:click={togglePricesInfoModalStatus}
-	class="fixed bottom-4 left-4"
+	class="fixed bottom-4 right-4"
 	aria-label="Show prices info"
 >
 	<Icon --size="2rem">
@@ -34,8 +34,8 @@
 </button>
 
 <div
-	class="fixed bottom-14 left-14 nm-flat-gray-200-lg dark:nm-flat-gray-800-lg p-4 items-center flex-col transform 
-  transition-transform duration-300 origin-bottom-left z-20 scale-0 flex 
+	class="fixed bottom-14 right-14 nm-flat-gray-200-lg dark:nm-flat-gray-800-lg p-4 items-center flex-col transform 
+  transition-transform duration-300 origin-bottom-right z-20 scale-0 flex 
   {hidden ? 'hidden' : ''} {showPricesInfoModal ? 'scale-100' : ''}"
 >
 	<h2 class="text-lg">Reveal prices:</h2>
