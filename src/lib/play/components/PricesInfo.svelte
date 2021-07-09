@@ -4,7 +4,7 @@
 	import { revealPrices } from '$lib/shared/constants/revealPrices';
 	import { WIN_PRIZE } from '$lib/shared/constants/winPrize';
 	import { RevealType } from '$lib/shared/model/enums/revealType';
-	import { onMount } from 'svelte';
+	import { onMount, tick } from 'svelte';
 	import MdInfoOutline from 'svelte-icons/md/MdInfoOutline.svelte';
 
 	let showPricesInfoModal = false;
@@ -18,7 +18,8 @@
 		(entry) => typeof entry === 'number'
 	) as Array<RevealType>;
 
-	onMount(() => {
+	onMount(async () => {
+		await tick();
 		hidden = false;
 	});
 </script>

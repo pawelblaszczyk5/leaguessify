@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Icon from '$lib/shared/components/Icon.svelte';
-	import { onMount } from 'svelte';
+	import { onMount, tick } from 'svelte';
 	import FaBars from 'svelte-icons/fa/FaBars.svelte';
 	import FaTimes from 'svelte-icons/fa/FaTimes.svelte';
 	import FaRegSun from 'svelte-icons/fa/FaRegSun.svelte';
@@ -26,8 +26,9 @@
 		document.documentElement.classList.toggle('dark');
 	};
 
-	onMount(() => {
+	onMount(async () => {
 		checkDarkModeStatus();
+		await tick();
 		hidden = false;
 	});
 </script>
