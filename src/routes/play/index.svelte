@@ -40,11 +40,17 @@
 	import { requestInProgress } from '$lib/shared/stores/requestInProgress';
 	import { score } from '$lib/play/stores/score';
 	import { WIN_PRIZE } from '$lib/shared/constants/winPrize';
+	import { toast } from '$lib/shared/stores/toast';
+	import { getWinningToastText } from '$lib/play/helpers/getWinningToastText';
 
 	export let gameStats: Game;
 
 	const setGameData = (gameStats: Game) => {
 		game.setGameData({ id: gameStats.gameId, region: gameStats.gameRegion });
+	};
+
+	const showWinningToast = () => {
+		toast.success(getWinningToastText());
 	};
 
 	const fetchNewGame = async () => {
@@ -77,6 +83,7 @@
 
 	const handleWin = () => {
 		score.increase(WIN_PRIZE);
+		showWinningToast();
 		fetchNewGame();
 	};
 
