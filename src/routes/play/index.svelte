@@ -121,6 +121,11 @@
 		}
 	};
 
+	const resetGameState = () => {
+		requestInProgress.endRequest();
+		score.reset();
+	};
+
 	$: setGameData(gameStats);
 </script>
 
@@ -148,3 +153,4 @@
 	<GameFinishModal on:playAgain={playAgain} />
 {/if}
 <PricesInfo />
+<svelte:window on:sveltekit:navigation-start={resetGameState} />
