@@ -18,6 +18,9 @@
 	import { checkCanSendRequest } from '../helpers/checkCanSendRequest';
 	import { callErrorToast } from '../helpers/callErrorToast';
 	import { requestInProgress } from '$lib/shared/stores/requestInProgress';
+	import { createEventDispatcher } from 'svelte';
+
+	const dispatch = createEventDispatcher<{ guess: number }>();
 
 	export let teamIndex: 0 | 1;
 	export let participants: Array<Participant>;
@@ -135,7 +138,9 @@
 		}
 	};
 
-	const guessWinningTeam = () => {};
+	const guessWinningTeam = () => {
+		dispatch('guess', teamIndex);
+	};
 </script>
 
 <div class="flex flex-col items-center justify-center">
