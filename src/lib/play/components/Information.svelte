@@ -14,16 +14,16 @@
 	export let participantId: number;
 
 	const revealGold = async () => {
+		if (!checkCanSendRequest()) {
+			return;
+		}
+
 		const gameData = get(game);
 		const params = new URLSearchParams({
 			gameId: gameData.id.toString(),
 			gameRegion: gameData.region,
 			participantId: participantId.toString()
 		}).toString();
-
-		if (!checkCanSendRequest()) {
-			return;
-		}
 
 		try {
 			const goldResponse = await fetch(`api/game/participant/gold?${params}`);
