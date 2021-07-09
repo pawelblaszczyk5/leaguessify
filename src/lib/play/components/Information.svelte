@@ -6,6 +6,8 @@
 	import { game } from '../stores/game';
 	import FaEye from 'svelte-icons/fa/FaEye.svelte';
 	import { tooltip } from '$lib/shared/actions/tooltip';
+	import { checkCanSendRequest } from '../helpers/checkCanSendRequest';
+	import { handleRequestNotOk } from '../helpers/handleRequestNotOk';
 
 	export let kda: [number, number, number];
 	export let gold: number;
@@ -19,8 +21,17 @@
 			participantId: participantId.toString()
 		}).toString();
 
+		if (!checkCanSendRequest()) {
+			return;
+		}
+
 		try {
 			const goldResponse = await fetch(`api/game/participant/gold?${params}`);
+
+			if (!goldResponse.ok) {
+				await handleRequestNotOk(goldResponse);
+				return;
+			}
 			const goldData: { gold: number } = await goldResponse.json();
 
 			gold = goldData.gold;

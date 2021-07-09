@@ -8,18 +8,15 @@
 	import { game } from '../stores/game';
 	import { requestInProgress } from '$lib/shared/stores/requestInProgress';
 	import { callErrorToast } from '../helpers/callErrorToast';
-	import { callRequestInProgressToast } from '../helpers/callRequestInProgressToast';
+	import { checkCanSendRequest } from '../helpers/checkCanSendRequest';
+	import { handleRequestNotOk } from '../helpers/handleRequestNotOk';
 
 	export let gameDuration: number;
 
 	const revealGameDuration = async () => {
-		const isRequestInProgress = get(requestInProgress);
-
-		if (isRequestInProgress) {
-			callRequestInProgressToast();
+		if (!checkCanSendRequest()) {
 			return;
 		}
-		requestInProgress.startRequest();
 
 		const gameData = get(game);
 		const params = new URLSearchParams({
@@ -31,9 +28,7 @@
 			const gameDurationResponse = await fetch(`api/game/duration?${params}`);
 
 			if (!gameDurationResponse.ok) {
-				const errorText = await gameDurationResponse.text();
-
-				callErrorToast(errorText);
+				await handleRequestNotOk(gameDurationResponse);
 				return;
 			}
 			const gameDurationData: { duration: number } = await gameDurationResponse.json();
