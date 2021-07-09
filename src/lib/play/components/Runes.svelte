@@ -6,11 +6,19 @@
 	import FaEye from 'svelte-icons/fa/FaEye.svelte';
 	import Icon from '$lib/shared/components/Icon.svelte';
 	import { tooltip } from '$lib/shared/actions/tooltip';
+	import { checkCanSendRequest } from '../helpers/checkCanSendRequest';
+	import { callErrorToast } from '../helpers/callErrorToast';
+	import { requestInProgress } from '$lib/shared/stores/requestInProgress';
+	import { handleRequestNotOk } from '../helpers/handleRequestNotOk';
 
 	export let runes: [number, number];
 	export let participantId: number;
 
 	const revealRunes = async () => {
+		if (!checkCanSendRequest()) {
+			return;
+		}
+
 		const gameData = get(game);
 		const params = new URLSearchParams({
 			gameId: gameData.id.toString(),
@@ -20,11 +28,18 @@
 
 		try {
 			const runesResponse = await fetch(`api/game/participant/runes?${params}`);
+
+			if (!runesResponse.ok) {
+				await handleRequestNotOk(runesResponse);
+				return;
+			}
 			const runesData: { keystone: number; secondaryRunePath: number } = await runesResponse.json();
 
 			runes = [runesData.keystone, runesData.secondaryRunePath];
-		} catch (e) {
-			console.log(e);
+		} catch {
+			callErrorToast();
+		} finally {
+			requestInProgress.endRequest();
 		}
 	};
 

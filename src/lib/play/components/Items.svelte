@@ -6,12 +6,20 @@
 	import Icon from '$lib/shared/components/Icon.svelte';
 	import itemData from '$lib/shared/data/item.json';
 	import { tooltip } from '$lib/shared/actions/tooltip';
+	import { checkCanSendRequest } from '../helpers/checkCanSendRequest';
+	import { handleRequestNotOk } from '../helpers/handleRequestNotOk';
+	import { callErrorToast } from '../helpers/callErrorToast';
+	import { requestInProgress } from '$lib/shared/stores/requestInProgress';
 
 	export let items: Array<number>;
 	export let participantId: number;
 	export let reversed = false;
 
 	const revealItems = async () => {
+		if (!checkCanSendRequest()) {
+			return;
+		}
+
 		const gameData = get(game);
 		const params = new URLSearchParams({
 			gameId: gameData.id.toString(),
@@ -21,11 +29,18 @@
 
 		try {
 			const itemsResponse = await fetch(`api/game/participant/items?${params}`);
+
+			if (!itemsResponse.ok) {
+				await handleRequestNotOk(itemsResponse);
+				return;
+			}
 			const itemsData: { items: Array<number> } = await itemsResponse.json();
 
 			items = itemsData.items;
-		} catch (e) {
-			console.log(e);
+		} catch {
+			callErrorToast();
+		} finally {
+			requestInProgress.endRequest();
 		}
 	};
 

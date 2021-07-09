@@ -6,11 +6,19 @@
 	import FaEye from 'svelte-icons/fa/FaEye.svelte';
 	import Icon from '$lib/shared/components/Icon.svelte';
 	import { tooltip } from '$lib/shared/actions/tooltip';
+	import { checkCanSendRequest } from '../helpers/checkCanSendRequest';
+	import { handleRequestNotOk } from '../helpers/handleRequestNotOk';
+	import { callErrorToast } from '../helpers/callErrorToast';
+	import { requestInProgress } from '$lib/shared/stores/requestInProgress';
 
 	export let participantId: number;
 	export let summoners: [number, number];
 
 	const revealSummoners = async () => {
+		if (!checkCanSendRequest()) {
+			return;
+		}
+
 		const gameData = get(game);
 		const params = new URLSearchParams({
 			gameId: gameData.id.toString(),
@@ -20,12 +28,19 @@
 
 		try {
 			const summonersResponse = await fetch(`api/game/participant/summonerSpells?${params}`);
+
+			if (!summonersResponse.ok) {
+				await handleRequestNotOk(summonersResponse);
+				return;
+			}
 			const summonersData: { summonerSpell1: number; summonerSpell2: number } =
 				await summonersResponse.json();
 
 			summoners = [summonersData.summonerSpell1, summonersData.summonerSpell2];
-		} catch (e) {
-			console.log(e);
+		} catch {
+			callErrorToast();
+		} finally {
+			requestInProgress.endRequest();
 		}
 	};
 

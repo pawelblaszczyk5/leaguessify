@@ -4,11 +4,19 @@
 	import FaEye from 'svelte-icons/fa/FaEye.svelte';
 	import Icon from '$lib/shared/components/Icon.svelte';
 	import { tooltip } from '$lib/shared/actions/tooltip';
+	import { checkCanSendRequest } from '../helpers/checkCanSendRequest';
+	import { handleRequestNotOk } from '../helpers/handleRequestNotOk';
+	import { callErrorToast } from '../helpers/callErrorToast';
+	import { requestInProgress } from '$lib/shared/stores/requestInProgress';
 
 	export let championLevel: number;
 	export let participantId: number;
 
 	const revealChampionLevel = async () => {
+		if (!checkCanSendRequest()) {
+			return;
+		}
+
 		const gameData = get(game);
 		const params = new URLSearchParams({
 			gameId: gameData.id.toString(),
@@ -18,11 +26,18 @@
 
 		try {
 			const championLevelResponse = await fetch(`api/game/participant/level?${params}`);
+
+			if (!championLevelResponse.ok) {
+				await handleRequestNotOk(championLevelResponse);
+				return;
+			}
 			const championLevelData: { level: number } = await championLevelResponse.json();
 
 			championLevel = championLevelData.level;
-		} catch (e) {
-			console.log(e);
+		} catch {
+			callErrorToast();
+		} finally {
+			requestInProgress.endRequest();
 		}
 	};
 </script>

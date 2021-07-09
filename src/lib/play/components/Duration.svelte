@@ -34,7 +34,7 @@
 			const gameDurationData: { duration: number } = await gameDurationResponse.json();
 
 			gameDuration = gameDurationData.duration;
-		} catch (e) {
+		} catch {
 			callErrorToast();
 		} finally {
 			requestInProgress.endRequest();

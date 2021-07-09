@@ -15,6 +15,9 @@
 	import { game } from '../stores/game';
 	import Button from '$lib/shared/components/Button.svelte';
 	import Spacer from '$lib/shared/components/Spacer.svelte';
+	import { checkCanSendRequest } from '../helpers/checkCanSendRequest';
+	import { callErrorToast } from '../helpers/callErrorToast';
+	import { requestInProgress } from '$lib/shared/stores/requestInProgress';
 
 	export let teamIndex: 0 | 1;
 	export let participants: Array<Participant>;
@@ -31,68 +34,104 @@
 	};
 
 	const revealChampionKills = async () => {
+		if (!checkCanSendRequest()) {
+			return;
+		}
+
 		try {
 			const championKillsResponse = await fetch(`api/game/team/championKills?${getParams()}`);
 			const championKillsData: { championKills: number } = await championKillsResponse.json();
 
 			team.championKills = championKillsData.championKills;
-		} catch (e) {
-			console.log(e);
+		} catch {
+			callErrorToast();
+		} finally {
+			requestInProgress.endRequest();
 		}
 	};
 
 	const revealTowerKills = async () => {
+		if (!checkCanSendRequest()) {
+			return;
+		}
+
 		try {
 			const towerKillsResponse = await fetch(`api/game/team/towerKills?${getParams()}`);
 			const towerKillsData: { towerKills: number } = await towerKillsResponse.json();
 
 			team.towerKills = towerKillsData.towerKills;
-		} catch (e) {
-			console.log(e);
+		} catch {
+			callErrorToast();
+		} finally {
+			requestInProgress.endRequest();
 		}
 	};
 
 	const revealDragonKills = async () => {
+		if (!checkCanSendRequest()) {
+			return;
+		}
+
 		try {
 			const dragonKillsResponse = await fetch(`api/game/team/dragonKills?${getParams()}`);
 			const dragonKillsData: { dragonKills: number } = await dragonKillsResponse.json();
 
 			team.dragonKills = dragonKillsData.dragonKills;
-		} catch (e) {
-			console.log(e);
+		} catch {
+			callErrorToast();
+		} finally {
+			requestInProgress.endRequest();
 		}
 	};
 
 	const revealRiftHeraldKills = async () => {
+		if (!checkCanSendRequest()) {
+			return;
+		}
+
 		try {
 			const riftHeraldKillsResponse = await fetch(`api/game/team/riftHeraldKills?${getParams()}`);
 			const riftHeraldKillsData: { riftHeraldKills: number } = await riftHeraldKillsResponse.json();
 
 			team.riftHeraldKills = riftHeraldKillsData.riftHeraldKills;
-		} catch (e) {
-			console.log(e);
+		} catch {
+			callErrorToast();
+		} finally {
+			requestInProgress.endRequest();
 		}
 	};
 
 	const revealBaronKills = async () => {
+		if (!checkCanSendRequest()) {
+			return;
+		}
+
 		try {
 			const baronKillsResponse = await fetch(`api/game/team/baronKills?${getParams()}`);
 			const baronKillsData: { baronKills: number } = await baronKillsResponse.json();
 
 			team.baronKills = baronKillsData.baronKills;
-		} catch (e) {
-			console.log(e);
+		} catch {
+			callErrorToast();
+		} finally {
+			requestInProgress.endRequest();
 		}
 	};
 
 	const revealInhibitorKills = async () => {
+		if (!checkCanSendRequest()) {
+			return;
+		}
+
 		try {
 			const inhibitorKillsResponse = await fetch(`api/game/team/inhibitorKills?${getParams()}`);
 			const inhibitorKillsData: { inhibitorKills: number } = await inhibitorKillsResponse.json();
 
 			team.inhibitorKills = inhibitorKillsData.inhibitorKills;
-		} catch (e) {
-			console.log(e);
+		} catch {
+			callErrorToast();
+		} finally {
+			requestInProgress.endRequest();
 		}
 	};
 

@@ -8,6 +8,8 @@
 	import { tooltip } from '$lib/shared/actions/tooltip';
 	import { checkCanSendRequest } from '../helpers/checkCanSendRequest';
 	import { handleRequestNotOk } from '../helpers/handleRequestNotOk';
+	import { callErrorToast } from '../helpers/callErrorToast';
+	import { requestInProgress } from '$lib/shared/stores/requestInProgress';
 
 	export let kda: [number, number, number];
 	export let gold: number;
@@ -35,12 +37,18 @@
 			const goldData: { gold: number } = await goldResponse.json();
 
 			gold = goldData.gold;
-		} catch (e) {
-			console.log(e);
+		} catch {
+			callErrorToast();
+		} finally {
+			requestInProgress.endRequest();
 		}
 	};
 
 	const revealKDA = async () => {
+		if (!checkCanSendRequest()) {
+			return;
+		}
+
 		const gameData = get(game);
 		const params = new URLSearchParams({
 			gameId: gameData.id.toString(),
@@ -50,11 +58,18 @@
 
 		try {
 			const kdaResponse = await fetch(`api/game/participant/kda?${params}`);
+
+			if (!kdaResponse.ok) {
+				await handleRequestNotOk(kdaResponse);
+				return;
+			}
 			const kdaData: { kills: number; deaths: number; assists: number } = await kdaResponse.json();
 
 			kda = [kdaData.kills, kdaData.deaths, kdaData.assists];
-		} catch (e) {
-			console.log(e);
+		} catch {
+			callErrorToast();
+		} finally {
+			requestInProgress.endRequest();
 		}
 	};
 </script>
