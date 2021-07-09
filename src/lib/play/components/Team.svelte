@@ -19,6 +19,7 @@
 	import { callErrorToast } from '../helpers/callErrorToast';
 	import { requestInProgress } from '$lib/shared/stores/requestInProgress';
 	import { createEventDispatcher } from 'svelte';
+	import { handleRequestNotOk } from '../helpers/handleRequestNotOk';
 
 	const dispatch = createEventDispatcher<{ guess: number }>();
 
@@ -43,6 +44,11 @@
 
 		try {
 			const championKillsResponse = await fetch(`api/game/team/championKills?${getParams()}`);
+
+			if (!championKillsResponse.ok) {
+				await handleRequestNotOk(championKillsResponse);
+				return;
+			}
 			const championKillsData: { championKills: number } = await championKillsResponse.json();
 
 			team.championKills = championKillsData.championKills;
@@ -60,6 +66,11 @@
 
 		try {
 			const towerKillsResponse = await fetch(`api/game/team/towerKills?${getParams()}`);
+
+			if (!towerKillsResponse.ok) {
+				await handleRequestNotOk(towerKillsResponse);
+				return;
+			}
 			const towerKillsData: { towerKills: number } = await towerKillsResponse.json();
 
 			team.towerKills = towerKillsData.towerKills;
@@ -77,6 +88,11 @@
 
 		try {
 			const dragonKillsResponse = await fetch(`api/game/team/dragonKills?${getParams()}`);
+
+			if (!dragonKillsResponse.ok) {
+				await handleRequestNotOk(dragonKillsResponse);
+				return;
+			}
 			const dragonKillsData: { dragonKills: number } = await dragonKillsResponse.json();
 
 			team.dragonKills = dragonKillsData.dragonKills;
@@ -94,6 +110,11 @@
 
 		try {
 			const riftHeraldKillsResponse = await fetch(`api/game/team/riftHeraldKills?${getParams()}`);
+
+			if (!riftHeraldKillsResponse.ok) {
+				await handleRequestNotOk(riftHeraldKillsResponse);
+				return;
+			}
 			const riftHeraldKillsData: { riftHeraldKills: number } = await riftHeraldKillsResponse.json();
 
 			team.riftHeraldKills = riftHeraldKillsData.riftHeraldKills;
@@ -111,6 +132,11 @@
 
 		try {
 			const baronKillsResponse = await fetch(`api/game/team/baronKills?${getParams()}`);
+
+			if (!baronKillsResponse.ok) {
+				await handleRequestNotOk(baronKillsResponse);
+				return;
+			}
 			const baronKillsData: { baronKills: number } = await baronKillsResponse.json();
 
 			team.baronKills = baronKillsData.baronKills;
@@ -128,6 +154,11 @@
 
 		try {
 			const inhibitorKillsResponse = await fetch(`api/game/team/inhibitorKills?${getParams()}`);
+
+			if (!inhibitorKillsResponse.ok) {
+				await handleRequestNotOk(inhibitorKillsResponse);
+				return;
+			}
 			const inhibitorKillsData: { inhibitorKills: number } = await inhibitorKillsResponse.json();
 
 			team.inhibitorKills = inhibitorKillsData.inhibitorKills;
