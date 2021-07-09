@@ -6,8 +6,9 @@
 	import FaRegSun from 'svelte-icons/fa/FaRegSun.svelte';
 	import FaRegMoon from 'svelte-icons/fa/FaRegMoon.svelte';
 
-	let isMenuOpen = true;
+	let isMenuOpen = false;
 	let isDarkMode = false;
+	let hidden = true;
 
 	const toggleMenuState = () => {
 		isMenuOpen = !isMenuOpen;
@@ -25,14 +26,19 @@
 		document.documentElement.classList.toggle('dark');
 	};
 
-	onMount(checkDarkModeStatus);
+	onMount(() => {
+		checkDarkModeStatus();
+		hidden = false;
+	});
 </script>
 
 <nav class="flex items-center">
 	<div
-		class="transform-gpu fixed nm-flat-gray-200-sm dark:nm-flat-gray-800-sm h-screen w-80 max-w-full top-0 right-0 transition-transform duration-300 flex flex-col p-6 items-center text-xl {isMenuOpen
-			? 'translate-x-full'
-			: ''} md:static md:h-auto md:w-auto md:bg-transparent md:shadow-none md:dark:bg-transparent md:dark:shadow-none md:translate-x-0 md:flex-row"
+		class="transform-gpu fixed nm-flat-gray-200-sm dark:nm-flat-gray-800-sm h-screen w-80 max-w-full top-0 right-0 transition-transform duration-300 flex-col p-6 items-center text-xl {isMenuOpen
+			? ''
+			: 'translate-x-full'} {hidden
+			? 'hidden'
+			: 'flex'} md:static md:h-auto md:w-auto md:bg-transparent md:shadow-none md:dark:bg-transparent md:dark:shadow-none md:translate-x-0 md:flex-row"
 	>
 		<button
 			aria-label="Close menu"
