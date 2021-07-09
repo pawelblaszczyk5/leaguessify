@@ -42,8 +42,11 @@
 	import { WIN_PRIZE } from '$lib/shared/constants/winPrize';
 	import { toast } from '$lib/shared/stores/toast';
 	import { getWinningToastText } from '$lib/play/helpers/getWinningToastText';
+	import GameFinishModal from '$lib/play/components/GameFinishModal.svelte';
 
 	export let gameStats: Game;
+
+	let showGameFinishModal: boolean = false;
 
 	const setGameData = (gameStats: Game) => {
 		game.setGameData({ id: gameStats.gameId, region: gameStats.gameRegion });
@@ -73,12 +76,14 @@
 		}
 	};
 
-	const handleLoss = () => {
-		requestInProgress.endRequest();
+	const playAgain = () => {
+		showGameFinishModal = false;
 		score.reset();
-		window.alert('You lost');
 		fetchNewGame();
-		// TODO - MODAL WITH INFO AND AFTER SELECTING REPLY SHOULD END REQUEST
+	};
+
+	const handleLoss = () => {
+		showGameFinishModal = true;
 	};
 
 	const handleWin = () => {
@@ -138,3 +143,7 @@
 		</div>
 	{/if}
 </section>
+
+{#if showGameFinishModal}
+	<GameFinishModal on:playAgain={playAgain} />
+{/if}
