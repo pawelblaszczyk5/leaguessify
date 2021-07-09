@@ -5,6 +5,7 @@
 	import { onMount } from 'svelte';
 	import Button from '$lib/shared/components/Button.svelte';
 	import Spacer from '$lib/shared/components/Spacer.svelte';
+	import NmAnchor from '$lib/shared/components/NmAnchor.svelte';
 
 	let showLogo = false;
 
@@ -30,7 +31,7 @@
 		</div>
 		<div transition:fade|local={{ duration: 500, delay: 600 }} class="my-4 flex">
 			<Spacer x={4}>
-				<Button>Play</Button>
+				<NmAnchor href="/play">Play</NmAnchor>
 			</Spacer>
 			<Spacer x={4}>
 				<Button>Learn</Button>
