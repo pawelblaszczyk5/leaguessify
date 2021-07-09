@@ -43,6 +43,7 @@
 	import { toast } from '$lib/shared/stores/toast';
 	import { getWinningToastText } from '$lib/play/helpers/getWinningToastText';
 	import GameFinishModal from '$lib/play/components/GameFinishModal.svelte';
+	import PricesInfo from '$lib/play/components/PricesInfo.svelte';
 
 	export let gameStats: Game;
 
@@ -143,7 +144,7 @@
 		</div>
 	{/if}
 </section>
-
 {#if showGameFinishModal}
 	<GameFinishModal on:playAgain={playAgain} />
 {/if}
+<PricesInfo />

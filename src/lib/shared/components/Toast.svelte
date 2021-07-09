@@ -14,7 +14,7 @@
 	};
 </script>
 
-<div class="fixed left-4 bottom-4">
+<div class="fixed left-4 bottom-4 z-30">
 	{#each $toast as toast (toast)}
 		<div
 			transition:fade
