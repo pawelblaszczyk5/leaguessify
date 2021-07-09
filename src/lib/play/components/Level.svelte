@@ -8,6 +8,9 @@
 	import { handleRequestNotOk } from '../helpers/handleRequestNotOk';
 	import { callErrorToast } from '../helpers/callErrorToast';
 	import { requestInProgress } from '$lib/shared/stores/requestInProgress';
+	import { RevealType } from '$lib/shared/model/enums/revealType';
+	import { checkDoesHaveSufficientScoreToReveal } from '../helpers/checkDoesHaveSufficientScoreToReveal';
+	import { reduceScoreAfterRevealing } from '../helpers/reduceScoreAfterRevealing';
 
 	export let championLevel: number;
 	export let participantId: number;
@@ -16,7 +19,11 @@
 		if (!checkCanSendRequest()) {
 			return;
 		}
+		const revealType = RevealType.CHAMPION_LEVEL;
 
+		if (!checkDoesHaveSufficientScoreToReveal(revealType)) {
+			return;
+		}
 		const gameData = get(game);
 		const params = new URLSearchParams({
 			gameId: gameData.id.toString(),
@@ -33,6 +40,7 @@
 			}
 			const championLevelData: { level: number } = await championLevelResponse.json();
 
+			reduceScoreAfterRevealing(revealType);
 			championLevel = championLevelData.level;
 		} catch {
 			callErrorToast();

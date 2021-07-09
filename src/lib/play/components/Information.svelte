@@ -10,6 +10,9 @@
 	import { handleRequestNotOk } from '../helpers/handleRequestNotOk';
 	import { callErrorToast } from '../helpers/callErrorToast';
 	import { requestInProgress } from '$lib/shared/stores/requestInProgress';
+	import { RevealType } from '$lib/shared/model/enums/revealType';
+	import { checkDoesHaveSufficientScoreToReveal } from '../helpers/checkDoesHaveSufficientScoreToReveal';
+	import { reduceScoreAfterRevealing } from '../helpers/reduceScoreAfterRevealing';
 
 	export let kda: [number, number, number];
 	export let gold: number;
@@ -19,7 +22,11 @@
 		if (!checkCanSendRequest()) {
 			return;
 		}
+		const revealType = RevealType.GOLD;
 
+		if (!checkDoesHaveSufficientScoreToReveal(revealType)) {
+			return;
+		}
 		const gameData = get(game);
 		const params = new URLSearchParams({
 			gameId: gameData.id.toString(),
@@ -36,6 +43,7 @@
 			}
 			const goldData: { gold: number } = await goldResponse.json();
 
+			reduceScoreAfterRevealing(revealType);
 			gold = goldData.gold;
 		} catch {
 			callErrorToast();
@@ -48,7 +56,11 @@
 		if (!checkCanSendRequest()) {
 			return;
 		}
+		const revealType = RevealType.KDA;
 
+		if (!checkDoesHaveSufficientScoreToReveal(revealType)) {
+			return;
+		}
 		const gameData = get(game);
 		const params = new URLSearchParams({
 			gameId: gameData.id.toString(),
@@ -65,6 +77,7 @@
 			}
 			const kdaData: { kills: number; deaths: number; assists: number } = await kdaResponse.json();
 
+			reduceScoreAfterRevealing(revealType);
 			kda = [kdaData.kills, kdaData.deaths, kdaData.assists];
 		} catch {
 			callErrorToast();

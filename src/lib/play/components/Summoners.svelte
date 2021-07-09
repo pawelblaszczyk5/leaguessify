@@ -10,6 +10,9 @@
 	import { handleRequestNotOk } from '../helpers/handleRequestNotOk';
 	import { callErrorToast } from '../helpers/callErrorToast';
 	import { requestInProgress } from '$lib/shared/stores/requestInProgress';
+	import { checkDoesHaveSufficientScoreToReveal } from '../helpers/checkDoesHaveSufficientScoreToReveal';
+	import { RevealType } from '$lib/shared/model/enums/revealType';
+	import { reduceScoreAfterRevealing } from '../helpers/reduceScoreAfterRevealing';
 
 	export let participantId: number;
 	export let summoners: [number, number];
@@ -18,7 +21,11 @@
 		if (!checkCanSendRequest()) {
 			return;
 		}
+		const revealType = RevealType.SUMMONERS;
 
+		if (!checkDoesHaveSufficientScoreToReveal(revealType)) {
+			return;
+		}
 		const gameData = get(game);
 		const params = new URLSearchParams({
 			gameId: gameData.id.toString(),
@@ -36,6 +43,7 @@
 			const summonersData: { summonerSpell1: number; summonerSpell2: number } =
 				await summonersResponse.json();
 
+			reduceScoreAfterRevealing(revealType);
 			summoners = [summonersData.summonerSpell1, summonersData.summonerSpell2];
 		} catch {
 			callErrorToast();

@@ -10,6 +10,9 @@
 	import { handleRequestNotOk } from '../helpers/handleRequestNotOk';
 	import { callErrorToast } from '../helpers/callErrorToast';
 	import { requestInProgress } from '$lib/shared/stores/requestInProgress';
+	import { RevealType } from '$lib/shared/model/enums/revealType';
+	import { checkDoesHaveSufficientScoreToReveal } from '../helpers/checkDoesHaveSufficientScoreToReveal';
+	import { reduceScoreAfterRevealing } from '../helpers/reduceScoreAfterRevealing';
 
 	export let items: Array<number>;
 	export let participantId: number;
@@ -19,7 +22,11 @@
 		if (!checkCanSendRequest()) {
 			return;
 		}
+		const revealType = RevealType.ITEMS;
 
+		if (!checkDoesHaveSufficientScoreToReveal(revealType)) {
+			return;
+		}
 		const gameData = get(game);
 		const params = new URLSearchParams({
 			gameId: gameData.id.toString(),
@@ -36,6 +43,7 @@
 			}
 			const itemsData: { items: Array<number> } = await itemsResponse.json();
 
+			reduceScoreAfterRevealing(revealType);
 			items = itemsData.items;
 		} catch {
 			callErrorToast();

@@ -38,6 +38,8 @@
 	import { handleRequestNotOk } from '$lib/play/helpers/handleRequestNotOk';
 	import { callErrorToast } from '$lib/play/helpers/callErrorToast';
 	import { requestInProgress } from '$lib/shared/stores/requestInProgress';
+	import { score } from '$lib/play/stores/score';
+	import { WIN_PRIZE } from '$lib/shared/constants/winPrize';
 
 	export let gameStats: Game;
 
@@ -67,10 +69,14 @@
 
 	const handleLoss = () => {
 		requestInProgress.endRequest();
+		score.reset();
+		window.alert('You lost');
+		fetchNewGame();
 		// TODO - MODAL WITH INFO AND AFTER SELECTING REPLY SHOULD END REQUEST
 	};
 
 	const handleWin = () => {
+		score.increase(WIN_PRIZE);
 		fetchNewGame();
 	};
 

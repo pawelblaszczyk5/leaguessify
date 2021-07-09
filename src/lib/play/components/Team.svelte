@@ -20,6 +20,9 @@
 	import { requestInProgress } from '$lib/shared/stores/requestInProgress';
 	import { createEventDispatcher } from 'svelte';
 	import { handleRequestNotOk } from '../helpers/handleRequestNotOk';
+	import { checkDoesHaveSufficientScoreToReveal } from '../helpers/checkDoesHaveSufficientScoreToReveal';
+	import { RevealType } from '$lib/shared/model/enums/revealType';
+	import { reduceScoreAfterRevealing } from '../helpers/reduceScoreAfterRevealing';
 
 	const dispatch = createEventDispatcher<{ guess: number }>();
 
@@ -41,7 +44,11 @@
 		if (!checkCanSendRequest()) {
 			return;
 		}
+		const revealType = RevealType.CHAMPION_KILLS;
 
+		if (!checkDoesHaveSufficientScoreToReveal(revealType)) {
+			return;
+		}
 		try {
 			const championKillsResponse = await fetch(`api/game/team/championKills?${getParams()}`);
 
@@ -52,6 +59,7 @@
 			const championKillsData: { championKills: number } = await championKillsResponse.json();
 
 			team.championKills = championKillsData.championKills;
+			reduceScoreAfterRevealing(revealType);
 		} catch {
 			callErrorToast();
 		} finally {
@@ -63,7 +71,11 @@
 		if (!checkCanSendRequest()) {
 			return;
 		}
+		const revealType = RevealType.TOWER_KILLS;
 
+		if (!checkDoesHaveSufficientScoreToReveal(revealType)) {
+			return;
+		}
 		try {
 			const towerKillsResponse = await fetch(`api/game/team/towerKills?${getParams()}`);
 
@@ -73,6 +85,7 @@
 			}
 			const towerKillsData: { towerKills: number } = await towerKillsResponse.json();
 
+			reduceScoreAfterRevealing(revealType);
 			team.towerKills = towerKillsData.towerKills;
 		} catch {
 			callErrorToast();
@@ -85,7 +98,11 @@
 		if (!checkCanSendRequest()) {
 			return;
 		}
+		const revealType = RevealType.DRAGON_KILLS;
 
+		if (!checkDoesHaveSufficientScoreToReveal(revealType)) {
+			return;
+		}
 		try {
 			const dragonKillsResponse = await fetch(`api/game/team/dragonKills?${getParams()}`);
 
@@ -95,6 +112,7 @@
 			}
 			const dragonKillsData: { dragonKills: number } = await dragonKillsResponse.json();
 
+			reduceScoreAfterRevealing(revealType);
 			team.dragonKills = dragonKillsData.dragonKills;
 		} catch {
 			callErrorToast();
@@ -107,7 +125,11 @@
 		if (!checkCanSendRequest()) {
 			return;
 		}
+		const revealType = RevealType.RIFT_HERALD_KILLS;
 
+		if (!checkDoesHaveSufficientScoreToReveal(revealType)) {
+			return;
+		}
 		try {
 			const riftHeraldKillsResponse = await fetch(`api/game/team/riftHeraldKills?${getParams()}`);
 
@@ -129,7 +151,11 @@
 		if (!checkCanSendRequest()) {
 			return;
 		}
+		const revealType = RevealType.BARON_NASHOR_KILLS;
 
+		if (!checkDoesHaveSufficientScoreToReveal(revealType)) {
+			return;
+		}
 		try {
 			const baronKillsResponse = await fetch(`api/game/team/baronKills?${getParams()}`);
 
@@ -139,6 +165,7 @@
 			}
 			const baronKillsData: { baronKills: number } = await baronKillsResponse.json();
 
+			reduceScoreAfterRevealing(revealType);
 			team.baronKills = baronKillsData.baronKills;
 		} catch {
 			callErrorToast();
@@ -151,6 +178,11 @@
 		if (!checkCanSendRequest()) {
 			return;
 		}
+		const revealType = RevealType.BARON_NASHOR_KILLS;
+
+		if (!checkDoesHaveSufficientScoreToReveal(revealType)) {
+			return;
+		}
 
 		try {
 			const inhibitorKillsResponse = await fetch(`api/game/team/inhibitorKills?${getParams()}`);
@@ -161,6 +193,7 @@
 			}
 			const inhibitorKillsData: { inhibitorKills: number } = await inhibitorKillsResponse.json();
 
+			reduceScoreAfterRevealing(revealType);
 			team.inhibitorKills = inhibitorKillsData.inhibitorKills;
 		} catch {
 			callErrorToast();
