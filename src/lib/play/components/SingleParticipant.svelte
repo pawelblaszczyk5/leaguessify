@@ -48,12 +48,12 @@
 	</div>
 	<div class="flex justify-between flex-col" class:items-end={reversed}>
 		<Items participantId={participant.championId} items={participant.items} {reversed} />
-		<div class="absolute bottom-0">
-			<Information
-				kda={[participant.kills, participant.deaths, participant.assists]}
-				gold={participant.gold}
-				participantId={participant.championId}
-			/>
-		</div>
+	</div>
+	<div class="absolute bottom-0" class:right-9={!reversed} class:left-9={reversed}>
+		<Information
+			kda={[participant.kills, participant.deaths, participant.assists]}
+			gold={participant.gold}
+			participantId={participant.championId}
+		/>
 	</div>
 </div>
