@@ -17,6 +17,8 @@
 <div class="fixed left-4 bottom-4 z-30">
 	{#each $toast as toast (toast)}
 		<div
+			aria-live="assertive"
+			role="alert"
 			transition:fade
 			class="max-w-full w-52 flex items-center flex-row p-3 nm-flat-gray-200 dark:nm-flat-gray-800 my-4"
 		>
