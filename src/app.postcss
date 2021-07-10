@@ -11,3 +11,32 @@
 .tippy-box[data-theme~='blue'] {
 	@apply bg-blue-500 text-gray-200 p-2 rounded-sm text-sm;
 }
+
+html {
+	--scrollbarBackground: rgb(229, 229, 229);
+	--scrollThumbBackground: rgb(38, 38, 38);
+}
+
+html.dark {
+	--scrollbarBackground: rgb(38, 38, 38);
+	--scrollThumbBackground: rgb(229, 229, 229);
+}
+
+body {
+	scrollbar-color: var(--scrollThumbBackground) var(--scrollbarBackground);
+	scrollbar-width: thin;
+}
+
+body::-webkit-scrollbar {
+	width: 0.625rem;
+}
+
+body::-webkit-scrollbar-track {
+	background: var(--scrollbarBackground);
+}
+
+body::-webkit-scrollbar-thumb {
+	background-color: var(--scrollThumbBackground);
+	border: 0.125rem solid var(--scrollbarBackground);
+	border-radius: 0.3125rem;
+}
