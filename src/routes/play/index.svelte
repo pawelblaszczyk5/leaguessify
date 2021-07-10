@@ -129,7 +129,7 @@
 	$: setGameData(gameStats);
 </script>
 
-<section class="flex flex-col justify-center items-center z-0 relative">
+<section class="flex flex-col justify-center items-center">
 	<Score />
 	{#if gameStats}
 		<Duration gameDuration={gameStats.gameDuration} />
