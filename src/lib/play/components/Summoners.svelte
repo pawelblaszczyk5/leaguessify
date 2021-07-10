@@ -61,7 +61,10 @@
 	};
 </script>
 
-<div class="flex flex-col justify-between h-full relative">
+<div
+	class="flex flex-col justify-between h-full relative"
+	use:tooltip={{ content: 'Summoner spells', shouldShow: !Boolean(summoners[0]) }}
+>
 	{#each summoners as summoner}
 		<div
 			class="first:mb-2 nm-flat-gray-200 dark:nm-flat-gray-800 w-7 h-7 md:w-9 md:h-9 rounded-md overflow-hidden flex items-center justify-center"
@@ -79,7 +82,7 @@
 	{/each}
 	{#if !summoners[0]}
 		<button
-			aria-label="Reveal summoners"
+			aria-label="Reveal summoner spells"
 			on:click={revealSummoners}
 			class="w-full h-full absolute flex items-center justify-center bg-gray-200 bg-opacity-80 dark:bg-gray-800 dark:bg-opacity-80"
 		>

@@ -54,8 +54,7 @@
 	class="absolute h-6 w-6 rounded-full bg-blue-500 bottom-0 right-0 flex items-center justify-center text-xs text-gray-200"
 	class:bg-opacity-80={!championLevel}
 	use:tooltip={{
-		content: 'Champion level',
-		shouldShow: Boolean(championLevel)
+		content: 'Champion level'
 	}}
 >
 	<span class="sr-only">Champion level</span>

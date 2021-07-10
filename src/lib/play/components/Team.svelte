@@ -213,8 +213,7 @@
 		<div
 			class="flex items-center justify- just relative px-2 py-1"
 			use:tooltip={{
-				content: 'Champion kills',
-				shouldShow: !isNaN(team.championKills)
+				content: 'Champion kills'
 			}}
 		>
 			{#if isNaN(team.championKills)}
@@ -237,8 +236,7 @@
 		<div
 			class="flex items-center justify-center relative px-2 py-1"
 			use:tooltip={{
-				content: 'Tower kills',
-				shouldShow: !isNaN(team.towerKills)
+				content: 'Tower kills'
 			}}
 		>
 			{#if isNaN(team.towerKills)}
@@ -261,8 +259,7 @@
 		<div
 			class="flex items-center justify-center relative px-2 py-1"
 			use:tooltip={{
-				content: 'Dragon kills',
-				shouldShow: !isNaN(team.dragonKills)
+				content: 'Dragon kills'
 			}}
 		>
 			{#if isNaN(team.dragonKills)}
@@ -285,8 +282,7 @@
 		<div
 			class="flex items-center justify-center relative px-2 py-1"
 			use:tooltip={{
-				content: 'Rift Herald kills',
-				shouldShow: !isNaN(team.riftHeraldKills)
+				content: 'Rift Herald kills'
 			}}
 		>
 			{#if isNaN(team.riftHeraldKills)}
@@ -309,8 +305,7 @@
 		<div
 			class="flex items-center justify-center relative px-2 py-1"
 			use:tooltip={{
-				content: 'Baron kills',
-				shouldShow: !isNaN(team.baronKills)
+				content: 'Baron kills'
 			}}
 		>
 			{#if isNaN(team.baronKills)}
@@ -333,8 +328,7 @@
 		<div
 			class="flex items-center justify-center relative px-2 py-1"
 			use:tooltip={{
-				content: 'Inhibitor kills',
-				shouldShow: !isNaN(team.inhibitorKills)
+				content: 'Inhibitor kills'
 			}}
 		>
 			{#if isNaN(team.inhibitorKills)}

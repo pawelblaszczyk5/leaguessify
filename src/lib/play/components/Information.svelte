@@ -89,7 +89,7 @@
 
 <div class="m-2 text-sm">
 	<div class="flex items-center">
-		<div class="flex items-center relative">
+		<div class="flex items-center relative" use:tooltip={{ content: 'K/D/A' }}>
 			{#if isNaN(kda[0])}
 				<button
 					aria-label="Reveal KDA"
@@ -101,7 +101,7 @@
 					</Icon>
 				</button>
 			{/if}
-			<div class="flex items-center" use:tooltip={{ content: 'K/D/A', shouldShow: !isNaN(kda[0]) }}>
+			<div class="flex items-center">
 				<Icon --size="0.875rem">
 					<IoIosStats />
 				</Icon>
@@ -111,7 +111,7 @@
 				</span>
 			</div>
 		</div>
-		<div class="flex items-center ml-2 relative">
+		<div class="flex items-center ml-2 relative" use:tooltip={{ content: 'Gold' }}>
 			{#if isNaN(gold)}
 				<button
 					aria-label="Reveal gold"
@@ -123,7 +123,7 @@
 					</Icon>
 				</button>
 			{/if}
-			<div class="flex items-center" use:tooltip={{ content: 'Gold', shouldShow: !isNaN(kda[0]) }}>
+			<div class="flex items-center">
 				<Icon --size="0.875rem">
 					<FaCoins />
 				</Icon>

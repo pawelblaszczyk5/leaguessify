@@ -86,7 +86,10 @@
 	};
 </script>
 
-<div class="flex flex-col justify-between relative">
+<div
+	class="flex flex-col justify-between relative"
+	use:tooltip={{ content: 'Runes', shouldShow: !Boolean(runes[0]) }}
+>
 	<div
 		class="first:mb-2 nm-flat-gray-200 dark:nm-flat-gray-800 w-7 h-7 md:w-9 md:h-9 rounded-md overflow-hidden flex items-center justify-center"
 		use:tooltip={{

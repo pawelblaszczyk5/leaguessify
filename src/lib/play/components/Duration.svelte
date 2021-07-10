@@ -52,7 +52,7 @@
 
 <p
 	class="flex justify-center items-center mb-2 relative"
-	use:tooltip={{ content: 'Game duration', shouldShow: Boolean(gameDuration) }}
+	use:tooltip={{ content: 'Game duration' }}
 >
 	<Icon --size="1rem">
 		<FaRegClock />
