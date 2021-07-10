@@ -1,11 +1,11 @@
 <script>
-	import { toast } from '../stores/toast';
 	import FaCheckCircle from 'svelte-icons/fa/FaCheckCircle.svelte';
 	import FaExclamationCircle from 'svelte-icons/fa/FaExclamationCircle.svelte';
 	import FaQuestionCircle from 'svelte-icons/fa/FaQuestionCircle.svelte';
-	import Icon from './Icon.svelte';
-	import { ToastType } from '../model/enums/toastType';
+	import Icon from '../../shared/components/Icon.svelte';
+	import { ToastType } from '../../shared/model/enums/toastType';
 	import { fade } from 'svelte/transition';
+	import { toast } from '$lib/shared/stores/toast';
 
 	const toastIcon = {
 		[ToastType.ERROR]: FaExclamationCircle,

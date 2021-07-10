@@ -4,7 +4,7 @@
 	import '../app.postcss';
 	import oneLetterLogoWebpSrc from '../assets/oneLetterLogo.webp';
 	import oneLetterLogoPngSrc from '../assets/oneLetterLogo.png';
-	import Toast from '$lib/shared/components/Toast.svelte';
+	import Toast from '$lib/main/components/Toast.svelte';
 
 	let floatingHeader = false;
 
