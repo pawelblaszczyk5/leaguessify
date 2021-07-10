@@ -3,7 +3,6 @@
 	import fullLogoPngSrc from '../assets/fullLogo.png';
 	import { fly, fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
-	import Button from '$lib/shared/components/Button.svelte';
 	import Spacer from '$lib/shared/components/Spacer.svelte';
 	import NmAnchor from '$lib/shared/components/NmAnchor.svelte';
 
@@ -36,7 +35,7 @@
 				<NmAnchor href="/play">Play</NmAnchor>
 			</Spacer>
 			<Spacer x={4}>
-				<Button>Learn</Button>
+				<NmAnchor href="/learn">Learn</NmAnchor>
 			</Spacer>
 		</div>
 	{/if}

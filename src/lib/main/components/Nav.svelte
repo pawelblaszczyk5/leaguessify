@@ -57,17 +57,22 @@
 		<a
 			class="inline-block focus:outline-none focus:ring-2 focus:ring-blue-500 p-2 md:px-4"
 			sveltekit:prefetch
-			href="/">Lorem</a
+			href="/play">Play</a
 		>
 		<a
 			class="inline-block focus:outline-none focus:ring-2 focus:ring-blue-500 p-2 md:px-4"
 			sveltekit:prefetch
-			href="/">Ipsum</a
+			href="/learn">Learn</a
 		>
 		<a
 			class="inline-block focus:outline-none focus:ring-2 focus:ring-blue-500 p-2 md:px-4"
 			sveltekit:prefetch
-			href="/">About</a
+			href="/changelog">Changelog</a
+		>
+		<a
+			class="inline-block focus:outline-none focus:ring-2 focus:ring-blue-500 p-2 md:px-4"
+			sveltekit:prefetch
+			href="/about">About</a
 		>
 	</div>
 	<button
