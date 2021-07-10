@@ -17,8 +17,8 @@
 	>
 		<h2 class="text-3xl text-center mb-6">The journey stops there :(</h2>
 		<h3 class="text-xl text-center">
-			Unfortunately the guess was incorrect. Your final score was <span class="text-blue-500"
-				>{formatScore($score)}</span
+			Unfortunately the guess was incorrect. Your final score was <span
+				class="text-blue-700 dark:text-blue-300">{formatScore($score)}</span
 			>
 		</h3>
 		<div class="mt-6 flex flex-col sm:flex-row items-center justify-evenly w-full">
