@@ -26,6 +26,10 @@
 		document.documentElement.classList.toggle('dark');
 	};
 
+	const closeNavOnNavigation = () => {
+		isMenuOpen && toggleMenuState();
+	};
+
 	onMount(async () => {
 		checkDarkModeStatus();
 		await tick();
@@ -85,3 +89,4 @@
 		</Icon>
 	</button>
 </nav>
+<svelte:window on:sveltekit:navigation-start={closeNavOnNavigation} />
