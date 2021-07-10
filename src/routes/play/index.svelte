@@ -129,7 +129,7 @@
 	$: setGameData(gameStats);
 </script>
 
-<section class="flex flex-col justify-center items-center">
+<section class="flex flex-col justify-center items-center z-0 relative">
 	<Score />
 	{#if gameStats}
 		<Duration gameDuration={gameStats.gameDuration} />
@@ -148,9 +148,9 @@
 			/>
 		</div>
 	{/if}
+	{#if showGameFinishModal}
+		<GameFinishModal on:playAgain={playAgain} />
+	{/if}
+	<PricesInfo />
 </section>
-{#if showGameFinishModal}
-	<GameFinishModal on:playAgain={playAgain} />
-{/if}
-<PricesInfo />
 <svelte:window on:sveltekit:navigation-start={resetGameState} />
