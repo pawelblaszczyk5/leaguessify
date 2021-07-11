@@ -6,9 +6,9 @@ Whether you get the highest scores with more gambling approach or you will calcu
 
 ## Live version
 
-You can play it online right now [here](TODO)!
+You can play it online right now [here](https://leaguessify.netlify.app/)!
 
-[![Leaguessify](readme-assets/screenshot.png 'Leaguessify screenshot')](TODO)
+[![Leaguessify](readme-assets/screenshot.png 'Leaguessify screenshot')](https://leaguessify.netlify.app/)
 
 ## Technologies
 
