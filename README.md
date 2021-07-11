@@ -14,7 +14,7 @@ You can play it online right now [here](TODO)!
 
 ![Svelte](readme-assets/svelte.jpg 'Svelte & SvelteKit') ![Typescript](readme-assets/typescript.png 'Typescript') ![Tailwind](readme-assets/tailwind.jpg 'TailwindCSS') ![Redis](readme-assets/redis.jpg 'Redis') ![Netlify](readme-assets/netlify.jpg 'Netlify')
 
-SvelteKit is the framework behind all of it, to style it I used Tailwind CSS. Redis is cache provider to limit API queries number. Netlify is current cloud functions and hosting provider.
+SvelteKit - framework for building webapps with Svelte is the main thing behind all of it, I used it with Typescript. It's used for frontend and for backend part, which is compiled to serverless functions, to style it I used Tailwind CSS. Redis is cache provider to limit API queries number. Netlify is current cloud functions and hosting provider.
 
 ## Running locally
 
