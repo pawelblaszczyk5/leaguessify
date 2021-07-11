@@ -75,7 +75,12 @@
 			}}
 		>
 			{#if summoner}
-				<img src={resolveSummonerImageSrc(summoner)} alt={resolveSummonerName(summoner)} />
+				<img
+					src={resolveSummonerImageSrc(summoner)}
+					alt={resolveSummonerName(summoner)}
+					width="28"
+					height="28"
+				/>
 			{:else}
 				<p>?</p>
 			{/if}

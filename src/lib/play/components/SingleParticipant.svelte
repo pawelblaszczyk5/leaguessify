@@ -42,6 +42,9 @@
 		<img
 			src={resolveChampionImageSrc(participant.championName)}
 			alt={resolveChampionName(participant.championName)}
+			class="w-full h-full"
+			height="64"
+			width="64"
 			use:tooltip={{ content: resolveChampionName(participant.championName) }}
 		/>
 		<Level championLevel={participant.championLevel} participantId={participant.championId} />

@@ -103,6 +103,8 @@
 				class="h-6 w-6"
 				src={resolveKeystoneImageSrc(runes[0])}
 				alt={resolveKeystoneName(runes[0])}
+				width="28"
+				height="28"
 			/>
 		{:else}
 			<p>?</p>
@@ -120,6 +122,8 @@
 				class="h-5 w-5"
 				src={resolveSecondaryRunePathImageSrc(runes[1])}
 				alt={resolveSecondaryRunePathName(runes[1])}
+				width="28"
+				height="28"
 			/>
 		{:else}
 			<p>?</p>
