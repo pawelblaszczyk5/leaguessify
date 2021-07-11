@@ -1,4 +1,8 @@
-<section class="flex flex-col items-center justify-center max-w-lg mx-auto">
+<script lang="ts">
+	import Section from '$lib/shared/components/Section.svelte';
+</script>
+
+<Section>
 	<h1 class="text-center text-2xl">Goal of the game</h1>
 	<p class="text-center my-3">
 		The goal is to get an as high score as possible by guessing the winner of the game with as
@@ -6,8 +10,8 @@
 		gather various info in the next round. Some knowledge is more valuable than others, so costs
 		vary to balance everything out.
 	</p>
-</section>
-<section class="flex flex-col items-center justify-center max-w-lg mx-auto">
+</Section>
+<Section>
 	<h1 class="text-center text-2xl">How to play?</h1>
 	<p class="text-center my-3">
 		Use the reveal buttons to spend your score and get valuable pieces of information. If you are
@@ -17,8 +21,8 @@
 		bottom-right corner. Finally, if you are feeling confident or you have no other choice - make a
 		guess. Click the button below the corresponding team to do it.
 	</p>
-</section>
-<section class="flex flex-col items-center justify-center max-w-lg mx-auto">
+</Section>
+<Section>
 	<h1 class="text-center text-2xl">What games can you expect there?</h1>
 	<p class="text-center my-3">
 		Games are taken from 5 servers - EUW, KR, NA, EUNE, and JP, from various ranks. The data size is
@@ -26,4 +30,4 @@
 		days, so you will never know what awaits behind a corner. Maybe you will even recognize your own
 		match?
 	</p>
-</section>
+</Section>
