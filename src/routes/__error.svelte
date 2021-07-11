@@ -12,9 +12,13 @@
 </script>
 
 <script lang="ts">
+	import Meta from '$lib/shared/components/Meta.svelte';
+
 	export let status: number;
 	export let description: string;
 </script>
+
+<Meta title="{status} | Leaguessify" />
 
 <div class="flex flex-col items-center justify-center max-w-md w-full p-6 mx-auto">
 	<h1 class="text-3xl text-center">Something went wrong 😞</h1>
