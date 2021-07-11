@@ -57,6 +57,10 @@
 		toast.success(getWinningToastText());
 	};
 
+	const scrollToTop = () => {
+		window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+	};
+
 	const fetchNewGame = async () => {
 		requestInProgress.startRequest();
 
@@ -115,6 +119,7 @@
 			const resultData: { result: 'WIN' | 'LOST' } = await resultResponse.json();
 
 			resultData.result === 'WIN' ? handleWin() : handleLoss();
+			scrollToTop();
 		} catch {
 			callErrorToast();
 			requestInProgress.endRequest();
