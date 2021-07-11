@@ -23,6 +23,7 @@
 		taken from Reddit user <a
 			class="text-blue-700 dark:text-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
 			href="https://www.reddit.com/user/ClarenceDandridge/"
+			target="_blank"
 			rel="external nofollow noreferrer">u/ClarenceDandridge</a
 		>, who made a simpler version of it. Here is my take on the same idea. I wanted to take it a
 		step further and make it more analytical, random, and engaging. From here, I want to thank
