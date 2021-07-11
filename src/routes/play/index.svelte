@@ -134,6 +134,10 @@
 	$: setGameData(gameStats);
 </script>
 
+<svelte:head>
+	<title>Play | Leaguessify</title>
+</svelte:head>
+
 <section class="flex flex-col justify-center items-center">
 	<Score />
 	{#if gameStats}

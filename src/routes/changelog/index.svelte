@@ -6,6 +6,10 @@
 	import Section from '$lib/shared/components/Section.svelte';
 </script>
 
+<svelte:head>
+	<title>Changelog | Leaguessify</title>
+</svelte:head>
+
 <Section>
 	<h1 class="text-center text-2xl">v1.0.0</h1>
 	<p class="text-center my-3">

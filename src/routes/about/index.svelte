@@ -11,6 +11,10 @@
 	import IconLink from '$lib/about/components/IconLink.svelte';
 </script>
 
+<svelte:head>
+	<title>About | Leaguessify</title>
+</svelte:head>
+
 <Section>
 	<h1 class="text-center text-2xl">About the game</h1>
 	<p class="text-center my-3">

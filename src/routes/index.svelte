@@ -19,6 +19,10 @@
 	});
 </script>
 
+<svelte:head>
+	<title>Leaguessify</title>
+</svelte:head>
+
 <div class="flex flex-col items-center">
 	{#if showLogo}
 		<div class="flex flex-col items-center" transition:fly|local={{ y: -200, duration: 600 }}>
