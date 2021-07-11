@@ -19,7 +19,9 @@
 		>, who made a simpler version of it. Here is my take on the same idea. I wanted to take it a
 		step further and make it more analytical, random, and engaging. From here, I want to thank
 		everyone from Riot Games API Developer Community. Especially Canisback, who is providing data
-		that is powering this site.
+		that is powering this site. <br /><br />If you have any ideas about the future features of this
+		game, you can reach out to me with the links below. To name a few that I have - add players or
+		average game rank, other games mode, and some type of leaderboards/competing aspect.
 	</p>
 </Section>
 <Section>
