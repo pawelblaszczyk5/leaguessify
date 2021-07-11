@@ -21,7 +21,7 @@
 <section class="flex flex-col items-center justify-center">
 	<h1 class="text-center text-2xl max-w-lg">What games can you expect there?</h1>
 	<p class="text-center max-w-lg my-3">
-		Games are taken from 5 servers - EUNE, EUW, KR, NA, and JP, from various ranks. The data size is
+		Games are taken from 5 servers - EUW, KR, NA, EUNE, and JP, from various ranks. The data size is
 		pretty generous. You can expect a variety of puzzles. Moreover, games are rotated every few
 		days, so you will never know what awaits behind a corner. Maybe you will even recognize your own
 		match?
