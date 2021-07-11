@@ -11,7 +11,6 @@
 	const highScoreFromLocalStorage = localStorage.getItem('highscore');
 	const highScore = highScoreFromLocalStorage && Number(localStorage.getItem('highscore'));
 
-	console.log(highScore);
 	const currentScore = get(score);
 
 	if (currentScore > highScore) {
