@@ -13,6 +13,7 @@
 	import { checkDoesHaveSufficientScoreToReveal } from '../helpers/checkDoesHaveSufficientScoreToReveal';
 	import { RevealType } from '$lib/shared/model/enums/revealType';
 	import { reduceScoreAfterRevealing } from '../helpers/reduceScoreAfterRevealing';
+	import RevealButton from './RevealButton.svelte';
 
 	export let participantId: number;
 	export let summoners: [number, number];
@@ -81,14 +82,6 @@
 		</div>
 	{/each}
 	{#if !summoners[0]}
-		<button
-			aria-label="Reveal summoner spells"
-			on:click={revealSummoners}
-			class="w-full h-full absolute flex items-center justify-center bg-gray-200 bg-opacity-80 dark:bg-gray-800 dark:bg-opacity-80"
-		>
-			<Icon --size="1rem">
-				<FaEye />
-			</Icon>
-		</button>
+		<RevealButton ariaLabel="Reveal summoner spells" on:click={revealSummoners} />
 	{/if}
 </div>

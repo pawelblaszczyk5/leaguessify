@@ -13,6 +13,7 @@
 	import { checkDoesHaveSufficientScoreToReveal } from '../helpers/checkDoesHaveSufficientScoreToReveal';
 	import { RevealType } from '$lib/shared/model/enums/revealType';
 	import { reduceScoreAfterRevealing } from '../helpers/reduceScoreAfterRevealing';
+	import RevealButton from './RevealButton.svelte';
 
 	export let gameDuration: number;
 
@@ -60,14 +61,6 @@
 	<span class="sr-only">Game duration</span>
 	&nbsp;{gameDuration ? formatTime(gameDuration) : '??:??'}
 	{#if !gameDuration}
-		<button
-			aria-label="Reveal game duration"
-			on:click={revealGameDuration}
-			class="w-full h-full absolute flex items-center justify-center bg-gray-200 bg-opacity-80 dark:bg-gray-800 dark:bg-opacity-80"
-		>
-			<Icon --size="1rem">
-				<FaEye />
-			</Icon>
-		</button>
+		<RevealButton ariaLabel="Reveal game duration" on:click={revealGameDuration} />
 	{/if}
 </p>

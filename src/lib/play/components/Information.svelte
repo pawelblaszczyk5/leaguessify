@@ -13,6 +13,7 @@
 	import { RevealType } from '$lib/shared/model/enums/revealType';
 	import { checkDoesHaveSufficientScoreToReveal } from '../helpers/checkDoesHaveSufficientScoreToReveal';
 	import { reduceScoreAfterRevealing } from '../helpers/reduceScoreAfterRevealing';
+	import RevealButton from './RevealButton.svelte';
 
 	export let kda: [number, number, number];
 	export let gold: number;
@@ -91,15 +92,7 @@
 	<div class="flex items-center">
 		<div class="flex items-center relative" use:tooltip={{ content: 'K/D/A' }}>
 			{#if isNaN(kda[0])}
-				<button
-					aria-label="Reveal KDA"
-					on:click={revealKDA}
-					class="w-full h-full absolute flex items-center justify-center bg-gray-200 bg-opacity-80 dark:bg-gray-800 dark:bg-opacity-80"
-				>
-					<Icon --size="1rem">
-						<FaEye />
-					</Icon>
-				</button>
+				<RevealButton ariaLabel="Reveal KDA" on:click={revealKDA} />
 			{/if}
 			<div class="flex items-center">
 				<Icon --size="0.875rem">
@@ -113,15 +106,7 @@
 		</div>
 		<div class="flex items-center ml-2 relative" use:tooltip={{ content: 'Gold' }}>
 			{#if isNaN(gold)}
-				<button
-					aria-label="Reveal gold"
-					on:click={revealGold}
-					class="w-full h-full absolute flex items-center justify-center bg-gray-200 bg-opacity-80 dark:bg-gray-800 dark:bg-opacity-80"
-				>
-					<Icon --size="1rem">
-						<FaEye />
-					</Icon>
-				</button>
+				<RevealButton ariaLabel="Reveal gold" on:click={revealGold} />
 			{/if}
 			<div class="flex items-center">
 				<Icon --size="0.875rem">

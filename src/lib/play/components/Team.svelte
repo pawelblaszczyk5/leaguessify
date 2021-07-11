@@ -23,6 +23,7 @@
 	import { checkDoesHaveSufficientScoreToReveal } from '../helpers/checkDoesHaveSufficientScoreToReveal';
 	import { RevealType } from '$lib/shared/model/enums/revealType';
 	import { reduceScoreAfterRevealing } from '../helpers/reduceScoreAfterRevealing';
+	import RevealButton from './RevealButton.svelte';
 
 	const dispatch = createEventDispatcher<{ guess: number }>();
 
@@ -217,15 +218,7 @@
 			}}
 		>
 			{#if isNaN(team.championKills)}
-				<button
-					aria-label="Reveal champion kills"
-					on:click={revealChampionKills}
-					class="w-full h-full absolute flex items-center justify-center bg-gray-200 bg-opacity-80 dark:bg-gray-800 dark:bg-opacity-80"
-				>
-					<Icon --size="1rem">
-						<FaEye />
-					</Icon>
-				</button>
+				<RevealButton ariaLabel="Reveal champion kills" on:click={revealChampionKills} />
 			{/if}
 			<Icon --size="1rem">
 				<GiCrossedSwords />
@@ -240,15 +233,7 @@
 			}}
 		>
 			{#if isNaN(team.towerKills)}
-				<button
-					aria-label="Reveal tower kills"
-					on:click={revealTowerKills}
-					class="w-full h-full absolute flex items-center justify-center bg-gray-200 bg-opacity-80 dark:bg-gray-800 dark:bg-opacity-80"
-				>
-					<Icon --size="1rem">
-						<FaEye />
-					</Icon>
-				</button>
+				<RevealButton ariaLabel="Reveal tower kills" on:click={revealTowerKills} />
 			{/if}
 			<Icon --size="1rem">
 				<GiWhiteTower />
@@ -263,15 +248,7 @@
 			}}
 		>
 			{#if isNaN(team.dragonKills)}
-				<button
-					aria-label="Reveal dragon kills"
-					on:click={revealDragonKills}
-					class="w-full h-full absolute flex items-center justify-center bg-gray-200 bg-opacity-80 dark:bg-gray-800 dark:bg-opacity-80"
-				>
-					<Icon --size="1rem">
-						<FaEye />
-					</Icon>
-				</button>
+				<RevealButton ariaLabel="Reveal dragon kills" on:click={revealDragonKills} />
 			{/if}
 			<Icon --size="1rem">
 				<GiSpikedDragonHead />
@@ -286,15 +263,7 @@
 			}}
 		>
 			{#if isNaN(team.riftHeraldKills)}
-				<button
-					aria-label="Reveal Rift Herald kills"
-					on:click={revealRiftHeraldKills}
-					class="w-full h-full absolute flex items-center justify-center bg-gray-200 bg-opacity-80 dark:bg-gray-800 dark:bg-opacity-80"
-				>
-					<Icon --size="1rem">
-						<FaEye />
-					</Icon>
-				</button>
+				<RevealButton ariaLabel="Reveal Rift Herald kills" on:click={revealRiftHeraldKills} />
 			{/if}
 			<Icon --size="1rem">
 				<GiSheikahEye />
@@ -309,15 +278,7 @@
 			}}
 		>
 			{#if isNaN(team.baronKills)}
-				<button
-					aria-label="Reveal Baron kills"
-					on:click={revealBaronKills}
-					class="w-full h-full absolute flex items-center justify-center bg-gray-200 bg-opacity-80 dark:bg-gray-800 dark:bg-opacity-80"
-				>
-					<Icon --size="1rem">
-						<FaEye />
-					</Icon>
-				</button>
+				<RevealButton ariaLabel="Reveal Baron kills" on:click={revealBaronKills} />
 			{/if}
 			<Icon --size="1rem">
 				<GiCurledTentacle />
@@ -332,15 +293,7 @@
 			}}
 		>
 			{#if isNaN(team.inhibitorKills)}
-				<button
-					aria-label="Reveal inhibitor kills"
-					on:click={revealInhibitorKills}
-					class="w-full h-full absolute flex items-center justify-center bg-gray-200 bg-opacity-80 dark:bg-gray-800 dark:bg-opacity-80"
-				>
-					<Icon --size="1rem">
-						<FaEye />
-					</Icon>
-				</button>
+				<RevealButton ariaLabel="Reveal inhibitor kills" on:click={revealInhibitorKills} />
 			{/if}
 			<Icon --size="1rem">
 				<GiCircularSaw />
