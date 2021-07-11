@@ -1,3 +1,7 @@
+<script lang="ts" context="module">
+	export const prerender = true;
+</script>
+
 <script lang="ts">
 	import FaGithub from 'svelte-icons/fa/FaGithub.svelte';
 	import FaBlog from 'svelte-icons/fa/FaBlog.svelte';

@@ -1,3 +1,7 @@
+<script lang="ts" context="module">
+	export const prerender = true;
+</script>
+
 <script lang="ts">
 	import fullLogoWebpSrc from '../assets/fullLogo.webp';
 	import fullLogoPngSrc from '../assets/fullLogo.png';
