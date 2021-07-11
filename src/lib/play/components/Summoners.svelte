@@ -76,6 +76,7 @@
 		>
 			{#if summoner}
 				<img
+					class="w-full h-full"
 					src={resolveSummonerImageSrc(summoner)}
 					alt={resolveSummonerName(summoner)}
 					width="28"

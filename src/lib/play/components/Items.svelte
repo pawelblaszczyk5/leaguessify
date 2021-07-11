@@ -88,6 +88,7 @@
 				{#if !isNaN(items?.[index])}
 					{#if items?.[index] !== 0}
 						<img
+							class="w-full h-full"
 							src={resolveItemImageSrc(items[index])}
 							alt={resolveItemName(items[index])}
 							width="28"
@@ -110,6 +111,7 @@
 		{#if !isNaN(items?.[6])}
 			{#if items?.[6] !== 0}
 				<img
+					class="w-full h-full"
 					src={resolveItemImageSrc(items[6])}
 					alt={resolveItemName(items[6])}
 					width="28"
