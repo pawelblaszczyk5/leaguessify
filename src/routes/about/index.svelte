@@ -9,11 +9,10 @@
 	import FaAt from 'svelte-icons/fa/FaAt.svelte';
 	import Section from '$lib/shared/components/Section.svelte';
 	import IconLink from '$lib/about/components/IconLink.svelte';
+	import Meta from '$lib/shared/components/Meta.svelte';
 </script>
 
-<svelte:head>
-	<title>About | Leaguessify</title>
-</svelte:head>
+<Meta title="About | Leaguessify" />
 
 <Section>
 	<h1 class="text-center text-2xl">About the game</h1>

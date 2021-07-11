@@ -3,12 +3,11 @@
 </script>
 
 <script lang="ts">
+	import Meta from '$lib/shared/components/Meta.svelte';
 	import Section from '$lib/shared/components/Section.svelte';
 </script>
 
-<svelte:head>
-	<title>Learn | Leaguessify</title>
-</svelte:head>
+<Meta title="Learn | Leaguessify" />
 
 <Section>
 	<h1 class="text-center text-2xl">Goal of the game</h1>

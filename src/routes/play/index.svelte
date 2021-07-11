@@ -44,6 +44,7 @@
 	import { getWinningToastText } from '$lib/play/helpers/getWinningToastText';
 	import GameFinishModal from '$lib/play/components/GameFinishModal.svelte';
 	import PricesInfo from '$lib/play/components/PricesInfo.svelte';
+	import Meta from '$lib/shared/components/Meta.svelte';
 
 	export let gameStats: Game;
 
@@ -134,9 +135,7 @@
 	$: setGameData(gameStats);
 </script>
 
-<svelte:head>
-	<title>Play | Leaguessify</title>
-</svelte:head>
+<Meta title="Play | Leaguessify" />
 
 <section class="flex flex-col justify-center items-center">
 	<Score />

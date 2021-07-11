@@ -9,6 +9,7 @@
 	import { onMount } from 'svelte';
 	import Spacer from '$lib/shared/components/Spacer.svelte';
 	import NmAnchor from '$lib/shared/components/NmAnchor.svelte';
+	import Meta from '$lib/shared/components/Meta.svelte';
 
 	let showLogo = false;
 
@@ -19,9 +20,7 @@
 	});
 </script>
 
-<svelte:head>
-	<title>Leaguessify</title>
-</svelte:head>
+<Meta title="Leaguessify" />
 
 <div class="flex flex-col items-center">
 	{#if showLogo}
