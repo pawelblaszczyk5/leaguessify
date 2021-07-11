@@ -17,7 +17,7 @@
 		Leaguessify is my side-project built with SvelteKit. It's completely open-source and free to
 		play It uses League of Legends API to provide information about the game statistics. The idea is
 		taken from Reddit user <a
-			class="text-blue-700 dark:text-blue-300"
+			class="text-blue-700 dark:text-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
 			href="https://www.reddit.com/user/ClarenceDandridge/"
 			rel="external nofollow noreferrer">u/ClarenceDandridge</a
 		>, who made a simpler version of it. Here is my take on the same idea. I wanted to take it a
