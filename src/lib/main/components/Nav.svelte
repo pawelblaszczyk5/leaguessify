@@ -67,12 +67,12 @@
 		<a
 			class="inline-block focus:outline-none focus:ring-2 focus:ring-blue-500 p-2 md:px-4"
 			sveltekit:prefetch
-			href="/changelog">Changelog</a
+			href="/about">About</a
 		>
 		<a
 			class="inline-block focus:outline-none focus:ring-2 focus:ring-blue-500 p-2 md:px-4"
 			sveltekit:prefetch
-			href="/about">About</a
+			href="/changelog">Changelog</a
 		>
 	</div>
 	<button
