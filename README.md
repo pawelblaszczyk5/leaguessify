@@ -12,7 +12,7 @@ You can play it online right now [here](TODO)!
 
 ## Technologies
 
-![Svelte](readme-assets/svelte.jpg 'Svelte & SvelteKit') ![Typescript](readme-assets/typescript.png 'Typescript') ![Tailwind](readme-assets/tailwind.jpg 'TailwindCSS') ![Redis](readme-assets/redis.jpg 'Redis') ![Netlify](readme-assets/redis.jpg 'Netlify')
+![Svelte](readme-assets/svelte.jpg 'Svelte & SvelteKit') ![Typescript](readme-assets/typescript.png 'Typescript') ![Tailwind](readme-assets/tailwind.jpg 'TailwindCSS') ![Redis](readme-assets/redis.jpg 'Redis') ![Netlify](readme-assets/netlify.jpg 'Netlify')
 
 SvelteKit is the framework behind all of it, to style it I used Tailwind CSS. Redis is cache provider to limit API queries number. Netlify is current cloud functions and hosting provider.
 
