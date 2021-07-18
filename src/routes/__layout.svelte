@@ -6,6 +6,7 @@
 	import oneLetterLogoPngSrc from '../assets/oneLetterLogo.png';
 	import Toast from '$lib/main/components/Toast.svelte';
 
+	let header: HTMLElement;
 	let floatingHeader = false;
 
 	const checkTheme = () => {
@@ -19,23 +20,20 @@
 		}
 	};
 
-	const handleScroll = (
-		e: UIEvent & {
-			currentTarget: EventTarget & Window;
-		}
-	) => {
-		floatingHeader = e.currentTarget.scrollY > 5;
-	};
+	onMount(() => {
+		checkTheme();
 
-	onMount(checkTheme);
+		new IntersectionObserver(([e]) => (floatingHeader = e.intersectionRatio < 1), {
+			threshold: [1]
+		}).observe(header);
+	});
 </script>
-
-<svelte:window on:scroll={handleScroll} />
 
 <header
 	class:nm-flat-gray-200={floatingHeader}
 	class:dark:nm-flat-gray-800={floatingHeader}
-	class="flex px-4 py-2 justify-between items-center sticky top-0 z-10"
+	class="flex px-4 pb-2 pt-[9px] justify-between items-center sticky top-[-1px] z-10"
+	bind:this={header}
 >
 	<a
 		sveltekit:prefetch
