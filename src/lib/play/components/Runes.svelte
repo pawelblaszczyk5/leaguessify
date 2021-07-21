@@ -3,8 +3,6 @@
 	import { runeIcon } from '../../../assets/runeIcon';
 	import runesData from '../../shared/data/rune.json';
 	import { game } from '../stores/game';
-	import FaEye from 'svelte-icons/fa/FaEye.svelte';
-	import Icon from '$lib/shared/components/Icon.svelte';
 	import { tooltip } from '$lib/shared/actions/tooltip';
 	import { checkCanSendRequest } from '../helpers/checkCanSendRequest';
 	import { callErrorToast } from '../helpers/callErrorToast';

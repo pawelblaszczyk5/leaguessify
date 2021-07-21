@@ -3,7 +3,6 @@
 	import Icon from '$lib/shared/components/Icon.svelte';
 	import { formatTime } from '$lib/play/helpers/timeFormatter';
 	import FaRegClock from 'svelte-icons/fa/FaRegClock.svelte';
-	import FaEye from 'svelte-icons/fa/FaEye.svelte';
 	import { get } from 'svelte/store';
 	import { game } from '../stores/game';
 	import { requestInProgress } from '$lib/shared/stores/requestInProgress';

@@ -5,7 +5,6 @@
 	import GiCrossedSwords from 'svelte-icons/gi/GiCrossedSwords.svelte';
 	import GiWhiteTower from 'svelte-icons/gi/GiWhiteTower.svelte';
 	import Icon from '$lib/shared/components/Icon.svelte';
-	import FaEye from 'svelte-icons/fa/FaEye.svelte';
 	import GiCurledTentacle from 'svelte-icons/gi/GiCurledTentacle.svelte';
 	import GiSheikahEye from 'svelte-icons/gi/GiSheikahEye.svelte';
 	import GiSpikedDragonHead from 'svelte-icons/gi/GiSpikedDragonHead.svelte';

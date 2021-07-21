@@ -4,7 +4,6 @@
 	import FaCoins from 'svelte-icons/fa/FaCoins.svelte';
 	import { get } from 'svelte/store';
 	import { game } from '../stores/game';
-	import FaEye from 'svelte-icons/fa/FaEye.svelte';
 	import { tooltip } from '$lib/shared/actions/tooltip';
 	import { checkCanSendRequest } from '../helpers/checkCanSendRequest';
 	import { handleRequestNotOk } from '../helpers/handleRequestNotOk';
