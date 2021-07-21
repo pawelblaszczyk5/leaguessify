@@ -44,7 +44,7 @@
 </button>
 <div
 	class="fixed bottom-14 right-14 nm-flat-gray-200-lg dark:nm-flat-gray-800-lg p-4 items-center flex-col transform 
-  transition-transform duration-300 origin-bottom-right z-20 scale-0 flex 
+  transition-transform duration-300 origin-bottom-right z-20 scale-0 flex rounded-md
   {hidden ? 'hidden' : ''} {showPricesInfoModal ? 'scale-100' : ''}"
 	bind:this={modal}
 >
