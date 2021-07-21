@@ -66,7 +66,8 @@
 		<button
 			aria-label="Reveal items"
 			on:click={revealItems}
-			class="w-full h-full absolute flex items-center justify-center bg-gray-200 bg-opacity-80 dark:bg-gray-800 dark:bg-opacity-80 m-2 -top-2 -left-2"
+			class="w-full h-full absolute flex items-center justify-center bg-gray-200 bg-opacity-80 dark:bg-gray-800 dark:bg-opacity-80 m-2 -top-2 -left-2
+			focus:outline-none focus:ring-2 focus:ring-blue-500"
 			class:pl-14={reversed}
 			class:pr-14={!reversed}
 		>
