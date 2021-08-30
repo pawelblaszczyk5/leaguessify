@@ -6,11 +6,12 @@ import { score } from '../stores/score';
 import { requestInProgress } from '$lib/shared/stores/requestInProgress';
 
 export const checkDoesHaveSufficientScoreToReveal = (revealType: RevealType): boolean => {
-	const isSufficient = score.checkDoesHaveGivenScore(revealPrices[revealType]);
+	const revealPrice = revealPrices[revealType];
+	const isSufficient = score.checkDoesHaveGivenScore(revealPrice);
 
 	if (!isSufficient) {
 		requestInProgress.endRequest();
-		toast.warning("You don't have sufficient score to reveal that information");
+		toast.warning(`You need to have ${revealPrice} points to reveal that information!`);
 	}
 	return isSufficient;
 };
