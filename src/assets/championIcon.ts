@@ -1,6 +1,7 @@
 import Aatrox from './champion/Aatrox.png';
 import Ahri from './champion/Ahri.png';
 import Akali from './champion/Akali.png';
+import Akshan from './champion/Akshan.png';
 import Alistar from './champion/Alistar.png';
 import Amumu from './champion/Amumu.png';
 import Anivia from './champion/Anivia.png';
@@ -158,6 +159,7 @@ export const championIcon = {
 	Aatrox,
 	Ahri,
 	Akali,
+	Akshan,
 	Alistar,
 	Amumu,
 	Anivia,
