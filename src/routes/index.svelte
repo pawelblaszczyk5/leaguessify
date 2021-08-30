@@ -15,8 +15,6 @@
 
 	onMount(() => {
 		showLogo = true;
-		// TODO - add prefetch when it will be fixed
-		// https://github.com/sveltejs/kit/issues/1605
 	});
 </script>
 
