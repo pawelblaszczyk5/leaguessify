@@ -20,7 +20,7 @@
 			aria-live="assertive"
 			role="alert"
 			transition:fade
-			class="max-w-full w-52 flex items-center flex-row p-3 nm-flat-gray-200 dark:nm-flat-gray-800 my-4"
+			class="max-w-full w-64 flex items-center flex-row p-3 nm-flat-gray-200 dark:nm-flat-gray-800 my-4"
 		>
 			<Icon --size="1.5rem">
 				<svelte:component this={toastIcon[toast.type]} />
