@@ -10,11 +10,17 @@
 	import Spacer from '$lib/shared/components/Spacer.svelte';
 	import NmAnchor from '$lib/shared/components/NmAnchor.svelte';
 	import Meta from '$lib/shared/components/Meta.svelte';
+	import { prefetch } from '$app/navigation';
 
 	let showLogo = false;
 
 	onMount(() => {
 		showLogo = true;
+
+		// @ts-ignore
+		if (!navigator?.connection?.saveData) {
+			prefetch('/play');
+		}
 	});
 </script>
 
