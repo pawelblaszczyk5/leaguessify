@@ -6,3 +6,4 @@ node_modules
 /functions
 /psd
 /src/lib/shared/data/*.json
+/.netlify
